@@ -1,0 +1,32 @@
+/* components/sidebar/sidebar.css */
+.sidebar {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  max-width: 60px; /* Chiều rộng khi thu gọn */
+}
+
+.sidebar.collapsed h2 {
+  display: none; /* Ẩn tiêu đề khi thu gọn */
+}
+
+.sidebar.collapsed .list-group {
+  display: none; /* Ẩn danh sách khi thu gọn */
+}
+
+#toggleSidebar {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggleSidebar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 30 30'%3E%3Cpath stroke='currentColor' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

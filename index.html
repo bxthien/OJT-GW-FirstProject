@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Components Project with Sidebar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar Component -->
+    <div id="navbar"></div>
+
+    <!-- Main Content với Sidebar -->
+    <div class="mt-4">
+      <div class="row">
+        <!-- Sidebar Component -->
+        <div id="sidebar" class="col-3"></div>
+
+        <!-- Nội dung chính -->
+        <div class="col">
+          <h1>Welcome to My Bootstrap Project with Sidebar</h1>
+          <p>
+            This project uses separate HTML, CSS, and JS files for each
+            component.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+
+    <script src="components/navbar/navbar.js" type="module"></script>
+    <script src="components/sidebar/sidebar.js" type="module"></script>
+    <script src="components/footer/footer.js" type="module"></script>
+  </body>
+</html>
