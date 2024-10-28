@@ -219,3 +219,75 @@
     margin-right: 10px;
   }
   
+  /* Màn hình trung bình (Máy tính bảng ngang và dọc) */
+@media (max-width: 992px) {
+  .container {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .left-section, .right-section {
+      padding: 30px;
+      height: auto;
+      text-align: center;
+  }
+
+  .message-input {
+      max-width: 80%;
+      margin: 20px auto;
+  }
+
+  .right-section h2 {
+      font-size: 1.5em;
+  }
+
+  button[type="submit"], .social-login {
+      font-size: 0.9em;
+      padding: 12px;
+  }
+}
+
+/* Màn hình nhỏ (Điện thoại) */
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+
+  .container {
+      flex-direction: column;
+      border-radius: 15px;
+      box-shadow: none;
+  }
+
+  .left-section, .right-section {
+      padding: 20px;
+      text-align: center;
+  }
+
+  .left-section h1, .right-section h2 {
+      font-size: 1.4em;
+  }
+
+  .right-section p, .left-section p {
+      font-size: 0.8em;
+  }
+
+  .message-input {
+      max-width: 100%;
+      margin: 15px auto;
+      padding: 10px;
+  }
+
+  .message-box {
+      font-size: 0.8em;
+  }
+
+  input[type="email"], input[type="password"], button[type="submit"], .social-login {
+      font-size: 0.8em;
+      padding: 10px;
+  }
+
+  button[type="submit"] {
+      padding: 12px;
+  }
+}
