@@ -140,6 +140,17 @@
     color: #666;
   }
   
+  .checkbox{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .checkbox > input{
+    width: 18px;
+    height: 18px;
+  }
+  
   form {
     width: 90%;
     height: 90%;
@@ -223,7 +234,7 @@
   
   
   /* Màn hình trung bình (Máy tính bảng ngang và dọc) */
-@media (max-width: 1025px) {
+@media (max-width: 1280px) {
   .container {
       flex-direction: column;
       height: auto;
@@ -231,6 +242,10 @@
       background-color: #CAD9F0;
       
       
+  }
+  label{
+    text-align: left;
+    padding-left: 10px;
   }
 
   .left-section{
@@ -274,7 +289,10 @@
       box-shadow: none;
       padding: 20px;
   }
-
+  label{
+    text-align: left;
+    padding-left: 10px;
+  }
   .left-section {
       padding: 20px;
       text-align: center;
