@@ -6,7 +6,7 @@
   <title>Register</title>
   <link rel="stylesheet" href="Register.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+  <script src="register.js" defer></script> <!-- Thêm liên kết đến file JavaScript -->
 </head>
 <body>
   <div class="container">
@@ -32,18 +32,18 @@
     <div class="right-section">
       <h2>Sign up with free trial</h2>
       <p>Empower your experience, sign up for a free account today</p>
-      <form>
-        <label for="email">User Name*</label>
-        <input type="email" id="username" placeholder="Enter User Name" required>
+      <form id="form">
+        <label for="username">User Name*</label>
+        <input type="username" id="username" placeholder="Enter User Name" required>
 
-        <label for="email">Phone*</label>
-        <input type="email" id="phone" placeholder="0123 456 789" required>
+        <label for="username">Phone*</label>
+        <input type="username" id="phone" placeholder="0123 456 789" required>
 
-        <label for="email">Address</đá>*</label>
-        <input type="email" id="Address" placeholder="Enter Address" required>
+        <label for="username">Address*</label>
+        <input type="username" id="address" placeholder="Enter Address" required>
 
-        <label for="email">Email Address*</label>
-        <input type="email" id="email" placeholder="ex.email@domain.com" required>
+        <label for="username">Email Address*</label>
+        <input type="username" id="email" placeholder="ex.email@domain.com" required>
         
         <label for="password">Password*</label>
         <input type="password" id="password" placeholder="Enter password" required>
