@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.lang-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners for the menu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.selected-lang {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.selected-lang:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.selected-lang img {
+    width: 25px; /* Increased size for better visibility */
+    margin-right: 10px; /* Space between flag and text */
+}
+
+#lang-options {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px; /* Fixed width for the dropdown */
+    z-index: 1;
+    margin-top: 5px; /* Space between selected lang and options */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#lang-options li {
+    padding: 10px 15px;
+}
+
+#lang-options li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+#lang-options li a img {
+    width: 25px; /* Increased size for better visibility */
+    margin-right: 10px; /* Space between flag and text */
+}
+
+#lang-options li:hover {
+    background-color: #e0e0e0; /* Highlight on hover */
+}
+
+ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0;
+    margin: 0; /* Remove default margins */
+}
+
+li {
+    margin: 0; /* Remove default margins */
+    font-size: 18px; /* Font size for better readability */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Additional styling for the text list */
+#text-list {
+    margin-top: 20px; /* Space between language menu and text list */
+    padding: 10px;
+    border: 1px solid #ccc; /* Border for text list */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
