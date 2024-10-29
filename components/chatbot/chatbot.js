@@ -105,6 +105,36 @@ document.addEventListener("DOMContentLoaded", function() {
    
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const chatbotProfile = document.getElementById("chatbotProfile");
+  const userProfile = document.getElementById("userProfile");
+  const closeButtons = document.querySelectorAll(".close-button");
+
+  // Event listener for Profile Setting and Chat UI
+  document.querySelector('[data-i18n="profile_setting"]').addEventListener("click", () => {
+      userProfile.style.display = "block";
+      chatbotProfile.style.display = "none";
+  });
+
+  document.querySelector('[data-i18n="chat_ui"]').addEventListener("click", () => {
+      chatbotProfile.style.display = "block";
+      userProfile.style.display = "none";
+  });
+
+  // Close modals when close button is clicked
+  closeButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+          e.target.parentElement.style.display = "none";
+      });
+  });
+
+  // Close modals when clicking outside of modal content
+  window.onclick = function (event) {
+      if (event.target.classList.contains("modal-content")) {
+          event.target.style.display = "none";
+      }
+  };
+});
 
 
 loadChatbot();
