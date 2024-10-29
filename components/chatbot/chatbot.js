@@ -30,4 +30,81 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const selectedLang = document.getElementById("selected-lang");
+  const langOptions = document.getElementById("lang-options");
+  const flagIcon = document.getElementById("flag-icon");
+
+  // Show/hide language options on click
+  selectedLang.addEventListener("click", function() {
+      langOptions.style.display = langOptions.style.display === "block" ? "none" : "block";
+  });
+
+  // Change language and flag icon
+  langOptions.addEventListener("click", function(e) {
+      if (e.target.tagName === "A") {
+          const newLang = e.target.dataset.value;
+          const newFlag = e.target.dataset.flag;
+
+          // Update selected language and flag
+          selectedLang.innerHTML = `<img id="flag-icon" src="${newFlag}" alt="flag" /> ${newLang === 'en' ? 'English' : 'Vietnamese'}`;
+
+          // Optionally, you can implement a function to change the text content here based on the selected language
+          changeLanguage(newLang);
+      } // Hide language options after selection
+      langOptions.style.display = 'none';
+  });
+
+
+
+  function changeLanguage(lang) {
+      // This function will change the text content based on the selected language
+      // For example, you can have a dictionary of translations for both languages
+      const translations = {
+          en: {
+              chat_ui: "Chat UI",
+              menu_templates: "All Templates",
+              menu_projects: "My Projects",
+              menu_other_pages: "Other Pages",
+              upgrade: "Go unlimited with PRO",
+              upgrade_btn: "Upgrade",
+              hey: "Hey, Quang Vu",
+              profile_setting: "Profile Setting",
+              logout: "Logout",
+              submit_button: "Submit",
+              type_message: "Type your message here...", 
+          },
+          vie: {
+              chat_ui: "Giao diện trò chuyện",
+              menu_templates: "Tất cả Mẫu",
+              menu_projects: "Dự án của tôi",
+              menu_other_pages: "Trang khác",
+              upgrade: "Nâng cấp không giới hạn với PRO",
+              upgrade_btn: "Nâng cấp",
+              hey: "Chào, Quang Vu",
+              profile_setting: "Cài đặt hồ sơ",
+              logout: "Đăng xuất",
+              submit_button: "Nhập",
+              type_message: "Nhập tin nhắn của bạn ở đây...", 
+          }
+      };
+
+      // Update text content based on selected language
+      document.querySelector('[data-i18n="chat_ui"]').textContent = translations[lang].chat_ui;
+      document.querySelector('[data-i18n="menu_templates"]').textContent = translations[lang].menu_templates;
+      document.querySelector('[data-i18n="menu_projects"]').textContent = translations[lang].menu_projects;
+      document.querySelector('[data-i18n="menu_other_pages"]').textContent = translations[lang].menu_other_pages;
+      document.querySelector('[data-i18n="upgrade"]').textContent = translations[lang].upgrade;
+      document.querySelector('[data-i18n="upgrade_btn"]').textContent = translations[lang].upgrade_btn;
+      document.querySelector('[data-i18n="hey"]').textContent = translations[lang].hey;
+      document.querySelector('[data-i18n="profile_setting"]').textContent = translations[lang].profile_setting;
+      document.querySelector('[data-i18n="logout"]').textContent = translations[lang].logout;
+      document.querySelector('[data-i18n="submit_button"]').textContent = translations[lang].submit_button;
+      document.querySelector('[data-i18n-placeholder="type_message"]').placeholder = translations[lang].type_message;
+   
+  }
+});
+
+
 loadChatbot();
