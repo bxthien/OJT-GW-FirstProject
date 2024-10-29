@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Menu</title>
+    <link rel="stylesheet" href="translation.css">
+</head>
+<body>
+    <div class="lang-menu">
+        <div class="selected-lang" id="selected-lang">
+            <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />
+            English
+        </div>
+        <ul id="lang-options">
+            <li>
+                <a href="#" class="en" data-value="en" data-flag="https://flagicons.lipis.dev/flags/4x3/gb.svg">
+                    <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />English</a> 
+            </li> 
+            <li>
+                <a href="#" class="vie" data-value="vie" data-flag="https://flagicons.lipis.dev/flags/4x3/vn.svg">
+                    <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/vn.svg" alt="flag" />Vietnamese</a> 
+            </li>
+        </ul>
+    </div>
+
+    <ul id="text-list">
+        <li data-key="welcome"></li>
+        <li data-key="howAreYou"></li>
+        <li data-key="example"></li>
+    </ul>
+
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="translation.js"></script>
+</body>
+</html>
