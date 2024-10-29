@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", function() {
               hey: "Hey, Quang Vu",
               profile_setting: "Profile Setting",
               logout: "Logout",
-              submit_button: "submit",
+              submit_button: "Submit",
+              type_message: "Type your message here...", 
           },
           vie: {
               chat_ui: "Giao diện trò chuyện",
@@ -85,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
               profile_setting: "Cài đặt hồ sơ",
               logout: "Đăng xuất",
               submit_button: "Nhập",
+              type_message: "Nhập tin nhắn của bạn ở đây...", 
           }
       };
 
@@ -99,7 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelector('[data-i18n="profile_setting"]').textContent = translations[lang].profile_setting;
       document.querySelector('[data-i18n="logout"]').textContent = translations[lang].logout;
       document.querySelector('[data-i18n="submit_button"]').textContent = translations[lang].submit_button;
-
+      document.querySelector('[data-i18n-placeholder="type_message"]').placeholder = translations[lang].type_message;
+   
   }
 });
 
