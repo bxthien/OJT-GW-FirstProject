@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('password').value;
 
         // Tải dữ liệu JSON từ tệp
-        fetch('user.json')
+        fetch('../../data/user.json')
             .then(response => response.json())
             .then(data => {
                 const users = data.user; // Đảm bảo sử dụng đúng tên trường
