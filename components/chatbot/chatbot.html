@@ -12,32 +12,46 @@
         <!-- Sidebar -->
         <aside class="sidebar">
           <h2>Viper</h2>
-          <ul class="menu">
-            <li>Chat UI</li>
-            <li>All Templates <span class="badge">PRO</span></li>
-            <li>My Projects <span class="badge">PRO</span></li>
-            <li>Other Pages</li>
-          </ul>
+          <!-- Language Switcher Dropdown -->
+          <div class="lang-menu">
+            <div class="selected-lang" id="selected-lang">
+                <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />
+                English
+            </div>
+            <ul id="lang-options">
+                <li>
+                    <a href="#" class="en" data-value="en" data-flag="https://flagicons.lipis.dev/flags/4x3/gb.svg">
+                        <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />English</a> 
+                </li> 
+                <li>
+                    <a href="#" class="vie" data-value="vie" data-flag="https://flagicons.lipis.dev/flags/4x3/vn.svg">
+                        <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/vn.svg" alt="flag" />Vietnamese</a> 
+                </li>
+            </ul>
+        </div>
+
+
+
+        <ul class="menu">
+          <li>Chat UI</li>
+          <li><span data-i18n="menu_templates">All Templates</span><span class="badge">PRO</span></li>
+          <li><span data-i18n="menu_projects">Projects</span><span class="badge">PRO</span></li>
+          <li data-i18n="menu_other_pages">Other Pages</li>
+      </ul>
+      
           <div class="pro-section">
-            <p>Go unlimited with PRO</p>
-            <button class="pro-btn">Upgrade</button>
+            <p data-i18n="upgrade">Go unlimited with PRO</p>
+            <button class="pro-btn" data-i18n="upgrade_btn">Upgrade</button>
           </div>
 
           <div class="footer-sidebar">
             <div class="footer-sidebar-avatar">
-        
-
-                <img
-                class="avatar"
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt="avatar"
-                />
-      
-                
-              <p>Quang Vu</p>
+              <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+              <p data-i18n="user_name">Quang Vu</p>
             </div>
             <div class="footer-sidebar-right">
               <div class="icon-box">
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24px"
@@ -66,49 +80,42 @@
             </div>
           </div>
         </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-          <header>
-            <nav class="main-content-top">
-              <h1>Chat UI</h1>
-
-              <div class="user-settings">
-                <span class="user-icon" id="dropdownButton">
-                 <img
-                class="avatar"
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt="avatar"
-                />
-                </span>
-                <div class="dropdown" id="dropdownContent">
-                  <span class="dropdown-title"> Hey, Quang Vu </span>
-                  <span class="dropdown-selected"> Profile Setting </span>
-                  <span class="dropdown-logout"> Log out </span>
-                </div>
-              </div>
-            </nav>
-          </header>
-
-          <!-- Chat Section -->
-          <section class="chat-section">
-            <div class="chat-container">
-              <div class="chat-box">
-                <div class="chat-bot">
-                  <!-- Nội dung chat với bot -->
-                  <p>Bot: Xin chào! Tôi có thể giúp gì cho bạn?</p>
-                  <p>Bạn: Xin chào bot!</p>
-                </div>
-                <div class="chat-input">
-                  <input type="text" placeholder="Type your message here..." />
-                  <button>Submit</button>
-                </div>
+ <!-- Main Content -->
+      <main class="main-content">
+        <header>
+          <nav class="main-content-top">
+            <h1 data-i18n="chat_ui">Chat UI</h1>
+            <div class="user-settings">
+              <span class="user-icon" id="dropdownButton">
+                <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+              </span>
+              <div class="dropdown" id="dropdownContent">
+                <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
+                <span class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
+                <span class="dropdown-logout" data-i18n="logout">Log out</span>
               </div>
             </div>
-          </section>
-        </main>
-      </div>
+          </nav>
+        </header>
+
+        <!-- Chat Section -->
+        <section class="chat-section">
+          <div class="chat-container">
+            <div class="chat-box">
+              <div class="chat-bot">
+                <p data-i18n="bot_message">Bot: Xin chào! Tôi có thể giúp gì cho bạn?</p>
+                <p data-i18n="user_greeting">Bạn: Xin chào bot!</p>
+              </div>
+              <div class="chat-input">
+                <input type="text" placeholder="Type your message here..." data-i18n-placeholder="type_message" />
+                <button data-i18n="submit_button">Submit</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-    <script src="./chatbot.js"></script>
-  </body>
+  </div>
+  <script src="./chatbot.js"></script>
+</body>
 </html>

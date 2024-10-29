@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -46,40 +45,48 @@ body {
     margin-bottom: 20px;
 }
 
+.menu {
+    list-style: none;       /* Remove bullet points from the list */
+    padding: 0;            /* Remove padding */
+    margin: 0;             /* Remove margin */
+}
+
 .menu li {
-    list-style: none;
-    padding: 10px 0;
-    font-size: 16px;
+    display: flex;          /* Use flexbox to align items */
+    align-items: center;    /* Center items vertically */
+    justify-content: space-between; /* Space between text and badge */
+    padding: 10px 0;       /* Maintain vertical padding */
+    font-size: 16px;       /* Font size for list items */
 }
 
 .menu .badge {
-    font-size: 12px;
-    background-color: #d0c4ff;
-    color: #6a44ff;
-    padding: 2px 8px;
-    border-radius: 8px;
-    margin-left: 8px;
+    font-size: 12px;       /* Font size for badges */
+    background-color: #d0c4ff; /* Badge background color */
+    color: #6a44ff;        /* Badge text color */
+    padding: 2px 8px;      /* Padding for badges */
+    border-radius: 8px;    /* Rounded corners for badges */
+    margin-left: 8px;      /* Space between text and badge */
 }
 
 .pro-section {
-    text-align: center;
-    background-color: #e1e4f3;
-    padding: 15px;
-    border-radius: 8px;
+    text-align: center;     /* Center text in the section */
+    background-color: #e1e4f3; /* Background color for the section */
+    padding: 15px;          /* Padding for the section */
+    border-radius: 8px;     /* Rounded corners for the section */
 }
 
 .pro-section p {
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 10px;    /* Margin below paragraph */
+    font-size: 14px;        /* Font size for paragraph */
 }
 
 .pro-btn {
-    background-color: #6a44ff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    background-color: #6a44ff; /* Button background color */
+    color: #fff;              /* Button text color */
+    padding: 10px 20px;       /* Padding for buttons */
+    border: none;             /* Remove border */
+    border-radius: 8px;       /* Rounded corners for buttons */
+    cursor: pointer;          /* Change cursor to pointer */
 }
 
 
@@ -307,3 +314,144 @@ width: 40px;
     font-size: 14px;
     font-weight: 400;
 }
+
+
+
+.lang-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners for the menu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.selected-lang {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.selected-lang:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.selected-lang img {
+    width: 25px; /* Increased size for better visibility */
+    margin-right: 10px; /* Space between flag and text */
+}
+
+#lang-options {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px; /* Fixed width for the dropdown */
+    z-index: 1;
+    margin-top: 5px; /* Space between selected lang and options */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#lang-options li {
+    padding: 10px 15px;
+}
+
+#lang-options li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+#lang-options li a img {
+    width: 25px; /* Increased size for better visibility */
+    margin-right: 10px; /* Space between flag and text */
+}
+
+#lang-options li:hover {
+    background-color: #e0e0e0; /* Highlight on hover */
+}
+
+ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0;
+    margin: 0; /* Remove default margins */
+}
+
+li {
+    margin: 0; /* Remove default margins */
+    font-size: 18px; /* Font size for better readability */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Additional styling for the text list */
+#text-list {
+    margin-top: 20px; /* Space between language menu and text list */
+    padding: 10px;
+    border: 1px solid #ccc; /* Border for text list */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+
+
+
+
+
+
+
+/* .language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-toggle img {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+}
+
+.language-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item img {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+} */
