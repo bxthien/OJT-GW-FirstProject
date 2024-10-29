@@ -221,19 +221,29 @@
     height: 25px;
   }
   
-  /* Màn hình trung bình (Máy tính bảng ngang và dọc) */
-@media (max-width: 992px) {
+   /* Màn hình trung bình (Máy tính bảng ngang và dọc) */
+@media (max-width: 1025px) {
   .container {
       flex-direction: column;
       height: auto;
+      padding: 40px;
+      background-color: #CAD9F0;
+      
+      
   }
 
-  .left-section, .right-section {
+  .left-section{
       padding: 30px;
       height: auto;
       text-align: center;
+      border-radius: 30px 30px 0 0;
   }
-
+  .right-section{
+      padding: 30px;
+      height: auto;
+      text-align: center;
+      border-radius:  0 0 30px 30px;
+  }
   .message-input {
       max-width: 80%;
       margin: 20px auto;
@@ -252,20 +262,30 @@
 /* Màn hình nhỏ (Điện thoại) */
 @media (max-width: 480px) {
   body {
-      padding: 10px;
+      
+      background-color: #CAD9F0;
+      height: auto;
+      
   }
 
   .container {
       flex-direction: column;
-      border-radius: 15px;
       box-shadow: none;
+      padding: 20px;
   }
 
-  .left-section, .right-section {
+  .left-section {
       padding: 20px;
       text-align: center;
+      border-radius: 10px 10px 0 0;
   }
+  .right-section{
+    padding: 20px;
+      text-align: center;
+      border-radius:  0 0 10px 10px;
+    
 
+  }
   .left-section h1, .right-section h2 {
       font-size: 1.4em;
   }
