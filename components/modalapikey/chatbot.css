@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.background {
+    background-color: #CAD9F0;    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.container {
+    display: flex;
+    height: 80%;
+    width: 90%;
+    background-color: #f5f6fa;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.menu {
+    list-style: none;       /* Remove bullet points from the list */
+    padding: 0;            /* Remove padding */
+    margin: 0;             /* Remove margin */
+}
+
+.menu li {
+    display: flex;          /* Use flexbox to align items */
+    align-items: center;    /* Center items vertically */
+    justify-content: space-between; /* Space between text and badge */
+    padding: 10px 0;       /* Maintain vertical padding */
+    font-size: 16px;       /* Font size for list items */
+}
+
+.menu .badge {
+    font-size: 12px;       /* Font size for badges */
+    background-color: #d0c4ff; /* Badge background color */
+    color: #6a44ff;        /* Badge text color */
+    padding: 2px 8px;      /* Padding for badges */
+    border-radius: 8px;    /* Rounded corners for badges */
+    margin-left: 8px;      /* Space between text and badge */
+}
+
+.pro-section {
+    text-align: center;     /* Center text in the section */
+    background-color: #e1e4f3; /* Background color for the section */
+    padding: 15px;          /* Padding for the section */
+    border-radius: 8px;     /* Rounded corners for the section */
+}
+
+.pro-section p {
+    margin-bottom: 10px;    /* Margin below paragraph */
+    font-size: 14px;        /* Font size for paragraph */
+}
+
+.pro-btn {
+    background-color: #6a44ff; /* Button background color */
+    color: #fff;              /* Button text color */
+    padding: 10px 20px;       /* Padding for buttons */
+    border: none;             /* Remove border */
+    border-radius: 8px;       /* Rounded corners for buttons */
+    cursor: pointer;          /* Change cursor to pointer */
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    
+    
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    
+    /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
+}
+
+header h1 {
+    
+    font-size: 24px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    
+}
+
+.main-content .user-settings{
+    margin-left: auto;
+    
+}
+
+.user-settings {
+    justify-content: end;
+    align-items: end;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    
+    
+}
+
+
+
+.user-settings .dropdown{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    
+    border: #333;
+    border-radius: 20px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+.dropdown .dropdown-title{
+    width: 100%;
+    padding: 10px 15px;        
+    border-bottom: 1px solid #333;
+    
+}
+
+.dropdown .dropdown-selected{
+    display: flex;
+    padding: 10px 15px;
+    width: max-content;
+
+    
+}
+
+.dropdown-logout{
+    padding: 10px 15px;
+    color: red;
+    font-weight: 600;
+}
+/* .user-icon {
+    background-color: #CAD9F0;
+    color: #fff;
+    padding: 4px;
+    border-radius: 50%;
+    
+    
+} */
+
+ .avatar{
+width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.model-selector button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #f0f1f6;
+    color: #333;
+}
+
+
+.chat-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: calc(100vh - 100px); */
+    padding: 20px;
+}
+
+
+.chat-input {
+    width: 100%;
+    
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+    margin-bottom: 10%;   
+}
+
+.chat-box {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bot {
+    
+    height: 400px;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
+
+
+
+.chat-input input {
+    
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+   
+}
+
+.chat-input button {
+    background-color: #6a44ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+   
+}
+
+.main-content-top{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.footer-sidebar{
+    display: flex;
+    flex-direction: row;
+    gap:4px;
+    padding: 4px 8px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-sidebar-right{
+    display: flex;
+    gap:6px;
+    align-items: center;
+    
+}
+
+
+.footer-sidebar-right .icon-box{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+            
+}
+
+.footer-sidebar-avatar{
+    gap: 6px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer-sidebar-avatar p{
+    width: max-content;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+.lang-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners for the menu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.selected-lang {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.selected-lang:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.selected-lang img {
+    width: 25px; /* Increased size for better visibility */
+    margin-right: 10px; /* Space between flag and text */
+}
+
+#lang-options {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px; /* Fixed width for the dropdown */
+    z-index: 1;
+    margin-top: 5px; /* Space between selected lang and options */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#lang-options li {
+    padding: 10px 15px;
+}
+
+#lang-options li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+#lang-options li a img {
+    width: 25px; /* Increased size for better visibility */
+    margin-right: 10px; /* Space between flag and text */
+}
+
+#lang-options li:hover {
+    background-color: #e0e0e0; /* Highlight on hover */
+}
+
+ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0;
+    margin: 0; /* Remove default margins */
+}
+
+li {
+    margin: 0; /* Remove default margins */
+    font-size: 18px; /* Font size for better readability */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Additional styling for the text list */
+#text-list {
+    margin-top: 20px; /* Space between language menu and text list */
+    padding: 10px;
+    border: 1px solid #ccc; /* Border for text list */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Modal styles */
+.modal-content {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.profile-header,
+.profile-body,
+.profile-footer {
+    text-align: center;
+}
+.projects-header{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.projects-body{
+    text-align: center;
+    display: flex; 
+    gap: 10px;  
+}
+input[type="enterapi"]{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+
+
+.projects-footer{
+    text-align: center;
+    padding-bottom: -15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    
+    
+}
+.apply-button{
+ 
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: white;
+    background-color: #6a44ff;
+    color: white;
+
+}
+.cancel-button{
+   
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: white;
+    background-color: #878689;
+    color: white;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) ;
+    margin-bottom: 5px;
+
+}
+
+
+/* Sidebar and content layout */
+.background {
+    /* Existing styling */
+}
+
+/* Add existing sidebar, chatbox, and general styles here */
+
+
+
+
+
+
+
+/* .language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-toggle img {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+}
+
+.language-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item img {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+} */
