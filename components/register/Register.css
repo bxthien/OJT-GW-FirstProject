@@ -140,6 +140,17 @@
     color: #666;
   }
   
+  .checkbox{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .checkbox > input{
+    width: 18px;
+    height: 18px;
+  }
+  
   form {
     width: 90%;
     height: 90%;
@@ -203,7 +214,7 @@
  
   .google {
     background-color: #fff;
-    gap: 10px;
+    
     border-radius: 30px;
   }
   
@@ -216,4 +227,108 @@
   .social-login img {
     margin-right: 10px;
   }
+  .img {
+    width: 25px;
+    height: 25px;
+  }
   
+  
+  /* Màn hình trung bình (Máy tính bảng ngang và dọc) */
+@media (max-width: 1280px) {
+  .container {
+      flex-direction: column;
+      height: auto;
+      padding: 40px;
+      background-color: #CAD9F0;
+      
+      
+  }
+  label{
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .left-section{
+      padding: 30px;
+      height: auto;
+      text-align: center;
+      border-radius: 30px 30px 0 0;
+  }
+  .right-section{
+      padding: 30px;
+      height: auto;
+      text-align: center;
+      border-radius:  0 0 30px 30px;
+  }
+  .message-input {
+      max-width: 80%;
+      margin: 20px auto;
+  }
+
+  .right-section h2 {
+      font-size: 1.5em;
+  }
+
+  button[type="submit"], .social-login {
+      font-size: 0.9em;
+      padding: 12px;
+  }
+}
+
+/* Màn hình nhỏ (Điện thoại) */
+@media (max-width: 480px) {
+  body {
+      
+      background-color: #CAD9F0;
+      height: auto;
+      
+  }
+
+  .container {
+      flex-direction: column;
+      box-shadow: none;
+      padding: 20px;
+  }
+  label{
+    text-align: left;
+    padding-left: 10px;
+  }
+  .left-section {
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+  }
+  .right-section{
+    padding: 20px;
+      text-align: center;
+      border-radius:  0 0 10px 10px;
+    
+
+  }
+  .left-section h1, .right-section h2 {
+      font-size: 1.4em;
+  }
+
+  .right-section p, .left-section p {
+      font-size: 0.8em;
+  }
+
+  .message-input {
+      max-width: 100%;
+      margin: 15px auto;
+      padding: 10px;
+  }
+
+  .message-box {
+      font-size: 0.8em;
+  }
+
+  input[type="email"], input[type="password"], button[type="submit"], .social-login {
+      font-size: 0.8em;
+      padding: 10px;
+  }
+
+  button[type="submit"] {
+      padding: 12px;
+  }
+}
