@@ -316,7 +316,7 @@ width: 40px;
 }
 
 
-
+/* ----------------------------------------------------------- */
 .lang-menu {
     position: relative;
     display: inline-block;
@@ -401,57 +401,51 @@ li {
 }
 
 
+/* ----------------------------------------------------------- */
 
 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    padding: 10px;
+  }
+  
+  #userSettings {
+    margin-right: 10px;
+  }
+  
+  .language-switcher {
+    position: relative;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  /* CSS for styling the select dropdown with flag background */
 
 
+  .language-switcher {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #languageSelect {
+    appearance: none; /* Loại bỏ kiểu mặc định */
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 10px 5px 30px; /* Thêm padding để tạo khoảng cách cho hình cờ */
+    background-color: white;
+    cursor: pointer;
+    background-size: 20px; /* Kích thước hình cờ */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Vị trí của hình cờ */
+  }
+  
+  #languageSelect option {
+    padding: 10px; /* Padding cho các tùy chọn */
+  }
+  
+  
 
 
-/* .language-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.dropdown-toggle img {
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  z-index: 1;
-}
-
-.language-dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-item {
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-item img {
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
-}
-
-.dropdown-item:hover {
-  background-color: #f1f1f1;
-} */

@@ -12,24 +12,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
           <h2>Viper</h2>
-          <!-- Language Switcher Dropdown -->
-          <div class="lang-menu">
-            <div class="selected-lang" id="selected-lang">
-                <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />
-                English
-            </div>
-            <ul id="lang-options">
-                <li>
-                    <a href="#" class="en" data-value="en" data-flag="https://flagicons.lipis.dev/flags/4x3/gb.svg">
-                        <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />English</a> 
-                </li> 
-                <li>
-                    <a href="#" class="vie" data-value="vie" data-flag="https://flagicons.lipis.dev/flags/4x3/vn.svg">
-                        <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/vn.svg" alt="flag" />Vietnamese</a> 
-                </li>
-            </ul>
-        </div>
-
+         
 
 
         <ul class="menu">
@@ -95,6 +78,15 @@
                 <span class="dropdown-logout" data-i18n="logout">Log out</span>
               </div>
             </div>
+
+              <!-- Language Dropdown Switcher -->
+            <div class="language-switcher">
+              <select id="languageSelect">
+                <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png">EN</option>
+                <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png">VN</option>
+              </select>
+            </div>
+
           </nav>
         </header>
 
