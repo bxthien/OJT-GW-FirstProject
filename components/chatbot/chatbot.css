@@ -5,7 +5,7 @@
 }
 
 .background {
-  background-color: #cad9f0;
+  background-color: #CAD9F0;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -41,12 +41,9 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   border-radius: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.chat-user-bottom{
-  margin-top: auto;
 }
 
 .sidebar h2 {
@@ -54,52 +51,45 @@ body {
   margin-bottom: 20px;
 }
 
-.menu {
-    list-style: none;       /* Remove bullet points from the list */
-    padding: 0;            /* Remove padding */
-    margin: 0;             /* Remove margin */
-}
-
 .menu li {
-    display: flex;          /* Use flexbox to align items */
-    align-items: center;    /* Center items vertically */
-    justify-content: space-between; /* Space between text and badge */
-    padding: 10px 0;       /* Maintain vertical padding */
-    font-size: 16px;       /* Font size for list items */
+  list-style: none;
+  padding: 10px 0;
+  font-size: 16px;
 }
 
 .menu .badge {
-    font-size: 12px;       /* Font size for badges */
-    background-color: #d0c4ff; /* Badge background color */
-    color: #6a44ff;        /* Badge text color */
-    padding: 2px 8px;      /* Padding for badges */
-    border-radius: 8px;    /* Rounded corners for badges */
-    margin-left: 8px;      /* Space between text and badge */
+  font-size: 12px;
+  background-color: #d0c4ff;
+  color: #6a44ff;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 8px;
 }
 
 .pro-section {
-    text-align: center;     /* Center text in the section */
-    background-color: #e1e4f3; /* Background color for the section */
-    padding: 15px;          /* Padding for the section */
-    border-radius: 8px;     /* Rounded corners for the section */
+  text-align: center;
+  background-color: #e1e4f3;
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .pro-section p {
-    margin-bottom: 10px;    /* Margin below paragraph */
-    font-size: 14px;        /* Font size for paragraph */
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .pro-btn {
-    background-color: #6a44ff; /* Button background color */
-    color: #fff;              /* Button text color */
-    padding: 10px 20px;       /* Padding for buttons */
-    border: none;             /* Remove border */
-    border-radius: 8px;       /* Rounded corners for buttons */
-    cursor: pointer;          /* Change cursor to pointer */
+  background-color: #6a44ff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .main-content {
   flex: 1;
+
 }
 
 header {
@@ -186,10 +176,11 @@ header nav {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .chat-input {
-  height: 35%;
+  height: 40%;
   width: 100%;
   display: flex;
   gap: 10px;
@@ -216,6 +207,44 @@ header nav {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   /* display: "flex"; */
   /* flex-direction: row; */
+}
+
+/* Đặt màu nền và hiển thị hiệu ứng xoay tròn cho nút khi đang loading */
+.button-submit.loading {
+  background-color: #ccc;
+  pointer-events: none;
+  /* Vô hiệu hóa nhấn nút trong khi loading */
+  position: relative;
+}
+
+.button-submit {
+  position: relative;
+}
+
+/* Tạo biểu tượng loading xoay tròn */
+.button-submit.loading::after {
+  content: "";
+  border: 2px solid #fff;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  animation: spin 0.8s linear infinite;
+}
+
+/* Định nghĩa hoạt ảnh xoay */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .chat-bot {
@@ -259,6 +288,7 @@ header nav {
   border: 1px solid black;
   border-radius: 10px;
 }
+
 
 .chat-input input {
   flex: 1;
@@ -323,184 +353,117 @@ header nav {
   font-weight: 400;
 }
 
-.lang-menu {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 4px; /* Rounded corners for the menu */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition */
-}
 
-.selected-lang {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    background-color: white;
-    transition: background-color 0.3s; /* Smooth background transition */
-}
 
-.selected-lang:hover {
-    background-color: #f0f0f0; /* Change background on hover */
-}
+@media (max-width: 480px) {
+  .container {
+    flex-direction: row;
+    height: 90%;
+    width: 90%;
+  }
 
-.selected-lang img {
-    width: 25px; /* Increased size for better visibility */
-    margin-right: 10px; /* Space between flag and text */
-}
-
-#lang-options {
-    display: none; /* Initially hidden */
+  .sidebar {
     position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 150px; /* Fixed width for the dropdown */
-    z-index: 1;
-    margin-top: 5px; /* Space between selected lang and options */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-#lang-options li {
-    padding: 10px 15px;
-}
-
-#lang-options li a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s; /* Smooth background transition */
-}
-
-#lang-options li a img {
-    width: 25px; /* Increased size for better visibility */
-    margin-right: 10px; /* Space between flag and text */
-}
-
-#lang-options li:hover {
-    background-color: #e0e0e0; /* Highlight on hover */
-}
-
-ul {
-    list-style-type: none; /* No bullet points */
-    padding: 0;
-    margin: 0; /* Remove default margins */
-}
-
-li {
-    margin: 0; /* Remove default margins */
-    font-size: 18px; /* Font size for better readability */
-    cursor: pointer; /* Change cursor to pointer */
-}
-
-/* Additional styling for the text list */
-#text-list {
-    margin-top: 20px; /* Space between language menu and text list */
-    padding: 10px;
-    border: 1px solid #ccc; /* Border for text list */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #fff; /* White background */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-}
-
-/* Modal styles */
-.modal-content {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border-radius: 8px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
-
-.profile-header,
-.profile-body,
-.profile-footer {
-    text-align: center;
-}
-
-.avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-#chatbotProfile, #userProfile {
+    top: 0;
+    left: 0;
     display: none;
-}
+    width: 80%;
+    height: 100%;
+    margin-bottom: 20px;
+    z-index: 2;
+    background-color: white;
+  }
 
-/* Sidebar and content layout */
-.background {
-    /* Existing styling */
-}
-
-/* Add existing sidebar, chatbox, and general styles here */
-
-
-
-
-
-
-
-/* .language-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.dropdown-toggle img {
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  z-index: 1;
-}
-
-.language-dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-item {
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-item img {
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
-}
-
-.dropdown-item:hover {
-  background-color: #f1f1f1;
+  /* .sidebar::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 } */
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .user-settings {
+    justify-content: center;
+  }
+
+  .chat-bot {
+    height: 95%;
+  }
+
+  .container-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6a44ff;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    top: 50%;
+    left: -5px;
+  }
+
+  .container-icon.active {
+    transform: rotate(180deg);
+    /* Xoay 180 độ khi có lớp active */
+  }
+
+
+
+  .chat-section {
+    padding: 0;
+  }
+
+  .chat-box {
+    height: calc(100vh - 150px);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    flex-direction: row;
+    width: 95%;
+    height: 90%;
+    padding: 15px;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .chat-bot {
+    height: 350px;
+  }
+
+  .pro-btn {
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 90%;
+  }
+
+  .sidebar {
+    width: 250px;
+  }
+
+  .chat-bot {
+    height: 430px;
+  }
+}
