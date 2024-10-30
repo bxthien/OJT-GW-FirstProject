@@ -180,7 +180,6 @@ button[type="submit"]:hover {
   background-color: #4051b5;
 }
 
-<<<<<<< HEAD
   
   
   /* Right Section */
@@ -399,43 +398,3 @@ button[type="submit"]:hover {
       padding: 12px;
   }
 }
-=======
-.or {
-  text-align: center;
-  width: 100%;
-  margin: 15px 0;
-  font-size: 0.9em;
-  color: #aaa;
-}
-
-.social-login {
-  width: 100%;
-  padding: 12px;
-  font-size: 1em;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.google {
-  background-color: #fff;
-  gap: 10px;
-  border-radius: 30px;
-}
-
-.apple {
-  background-color: #f0f0f0;
-  gap: 10px;
-  border-radius: 30px;
-}
-
-.social-login img {
-  margin-right: 10px;
-}
->>>>>>> main
