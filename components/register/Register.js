@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     alert("Registration successful!");
                     form.reset();
+
+                    // Điều hướng sang trang đăng nhập
+                    //window.location.href = "../components/Login/login.html";
+                    window.location.href="/components/Login/login.html";
                 })
                 .catch(error => console.error('Lỗi khi tải dữ liệu:', error));
         } else {
