@@ -22,7 +22,7 @@
         </div>
         <!-- Sidebar -->
         <aside class="sidebar">
-          <button class="close-sidebar" onclick="toggleSidebar()">✖</button>
+          <button class="close-sidebar">✖</button>
           <h2>Viper</h2>
           <!-- Language Switcher Dropdown -->
           <div class="lang-menu">
@@ -220,5 +220,16 @@
       </div>
     </div>
     <script src="./chatbot.js"></script>
+    <script>
+      const sidebar = document.querySelector(".sidebar");
+      const closeButton = document.querySelector(".close-sidebar");
+
+      function toggleSidebar() {
+        sidebar.style.display =
+          sidebar.style.display === "none" ? "block" : "none";
+      }
+
+      closeButton.addEventListener("click", toggleSidebar);
+    </script>
   </body>
 </html>
