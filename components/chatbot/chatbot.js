@@ -57,6 +57,53 @@ document.addEventListener("DOMContentLoaded", function() {
     selectElement.style.backgroundRepeat = "no-repeat";
     selectElement.style.backgroundPosition = "5px center";
   }
+  // Change language and flag icon
+  langOptions.addEventListener("click", function(e) {
+      if (e.target.tagName === "A") {
+          const newLang = e.target.dataset.value;
+          const newFlag = e.target.dataset.flag;
+
+          // Update selected language and flag
+          selectedLang.innerHTML = `<img id="flag-icon" src="${newFlag}" alt="flag" /> ${newLang === 'en' ? 'English' : 'Vietnamese'}`;
+
+          // Optionally, you can implement a function to change the text content here based on the selected language
+          changeLanguage(newLang);
+      } // Hide language options after selection
+      langOptions.style.display = 'none';
+  });
+
+  function toggleSidebar() {
+
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('active'); // Thêm hoặc xóa lớp 'active' để hiển thị hoặc ẩn sidebar
+}
+
+// Đóng sidebar khi nhấp bên ngoài sidebar
+document.addEventListener('click', function(event) {
+  const sidebar = document.querySelector('.sidebar');
+  const toggleButton = document.querySelector('.container-icon');
+
+  // Kiểm tra xem có nhấp vào sidebar hoặc nút mở sidebar không
+  if (!sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
+    sidebar.classList.remove('active'); // Ẩn sidebar nếu nhấp ra ngoài
+  }
+});
+  
+  // Chọn phần tử nút container-icon
+const containerIcon = document.querySelector('.container-icon');
+// Lắng nghe sự kiện click trên nút
+containerIcon.addEventListener('click', () => {
+    // Thêm hoặc xóa lớp 'active' để xoay mũi tên
+  containerIcon.classList.toggle('active');
+  toggleSidebar();
+});
+
+// Thêm toggle cho sidebar
+const sidebar = document.querySelector('.sidebar');
+containerIcon.addEventListener('click', () => {
+    containerIcon.classList.toggle('active');
+    sidebar.style.display = "flex"
+});
 
   function changeLanguage(lang) {
     const translations = {
@@ -131,6 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   };
 });
+
+
 
 
 

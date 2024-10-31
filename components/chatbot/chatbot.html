@@ -9,19 +9,78 @@
   <body>
     <div class="background">
       <div class="container">
+        <div class="container-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="currentColor"
+          >
+            <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+          </svg>
+        </div>
         <!-- Sidebar -->
         <aside class="sidebar">
+          <button class="close-sidebar" onclick="toggleSidebar()">✖</button>
           <h2>Viper</h2>
+          <!-- Language Switcher Dropdown -->
+          <div class="lang-menu">
+            <div class="selected-lang" id="selected-lang">
+              <img
+                id="flag-icon"
+                src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                alt="flag"
+              />
+              English
+            </div>
+            <ul id="lang-options">
+              <li>
+                <a
+                  href="#"
+                  class="en"
+                  data-value="en"
+                  data-flag="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                >
+                  <img
+                    id="flag-icon"
+                    src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                    alt="flag"
+                  />English</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="vie"
+                  data-value="vie"
+                  data-flag="https://flagicons.lipis.dev/flags/4x3/vn.svg"
+                >
+                  <img
+                    id="flag-icon"
+                    src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
+                    alt="flag"
+                  />Vietnamese</a
+                >
+              </li>
+            </ul>
+          </div>
          
 
 
-        <ul class="menu">
-          <li>Chat UI</li>
-          <li><span data-i18n="menu_templates">All Templates</span><span class="badge">PRO</span></li>
-          <li><span data-i18n="menu_projects">Projects</span><span class="badge">PRO</span></li>
-          <li data-i18n="menu_other_pages">Other Pages</li>
-      </ul>
-      
+          <ul class="menu">
+            <li>Chat UI</li>
+            <li>
+              <span data-i18n="menu_templates">All Templates</span
+              ><span class="badge">PRO</span>
+            </li>
+            <li>
+              <span data-i18n="menu_projects">Projects</span
+              ><span class="badge">PRO</span>
+            </li>
+            <li data-i18n="menu_other_pages">Other Pages</li>
+          </ul>
+
           <div class="pro-section">
             <p data-i18n="upgrade">Go unlimited with PRO</p>
             <button class="pro-btn" data-i18n="upgrade_btn">Upgrade</button>
@@ -29,12 +88,15 @@
 
           <div class="footer-sidebar">
             <div class="footer-sidebar-avatar">
-              <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+              <img
+                class="avatar"
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                alt="avatar"
+              />
               <p data-i18n="user_name">Quang Vu</p>
             </div>
             <div class="footer-sidebar-right">
               <div class="icon-box">
-
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24px"
@@ -65,9 +127,9 @@
             </div>
           </div>
         </aside>
- <!-- Main Content -->
-      <main class="main-content">
-        <header>
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- <header>
           <nav class="main-content-top">
             <h1 data-i18n="chat_ui">Chat UI</h1>
             <div class="user-settings">
@@ -81,7 +143,7 @@
               </div>
             </div>
 
-              <!-- Language Dropdown Switcher -->
+              <Language Dropdown Switcher -->
             <div class="language-switcher">
               <select id="languageSelect">
                 <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png">EN</option>
@@ -90,60 +152,73 @@
             </div>
 
           </nav>
-        </header>
-<!-- Chatbot Profile Modal (Hidden by default) -->
-<div class="modal-content" id="chatbotProfile">
-  <span class="close-button">&times;</span>
-  <div class="profile-header">
-      <img src="image/chatbot.jpg" alt="Chatbot Avatar" class="avatar" />
-      <h2>Chatbot Name</h2>
-      <p>Support Bot</p>
-  </div>
-  <div class="profile-body">
-      <p><strong>Description:</strong> I can assist with queries regarding our services and products.</p>
-      <p><strong>Contact:</strong> support@company.com</p>
-  </div>
-  <div class="profile-footer">
-      <button id="contactSupport">Contact Support</button>
-  </div>
-</div>
-
-<!-- User Profile Modal (Hidden by default) -->
-<div class="modal-content" id="userProfile">
-  <span class="close-button">&times;</span>
-  <div class="profile-header">
-      <img src="image/user.jpg" alt="User Avatar" class="avatar" />
-      <h2>User Name</h2>
-      <p>Regular User</p>
-  </div>
-  <div class="profile-body">
-      <p><strong>Description:</strong> This is the profile of a regular user. Customize as needed.</p>
-      <p><strong>Phone:</strong> 03892266812</p>
-      <p><strong>Email:</strong> user@example.com</p>
-      <p><strong>Address:</strong> 111 Dp</p>
-  </div>
-  <div class="profile-footer">
-      <button id="editProfile">Edit Profile</button>
-  </div>
-</div>
-        <!-- Chat Section -->
-        <section class="chat-section">
-          <div class="chat-container">
-            <div class="chat-box">
-              <div class="chat-bot">
-                <p>Bot: Xin chào! Tôi có thể giúp gì cho bạn?</p>
-                <p>Bạn: Xin chào bot!</p>
-              </div>
-              <div class="chat-input">
-                <input type="text" placeholder="Type your message here..." data-i18n-placeholder="type_message" />
-                <button data-i18n="submit_button">Submit</button>
-              </div>
+        </header> 
+          <!-- Chatbot Profile Modal (Hidden by default) -->
+          <div class="modal-content" id="chatbotProfile">
+            <span class="close-button">&times;</span>
+            <div class="profile-header">
+              <img
+                src="image/chatbot.jpg"
+                alt="Chatbot Avatar"
+                class="avatar"
+              />
+              <h2>Chatbot Name</h2>
+              <p>Support Bot</p>
+            </div>
+            <div class="profile-body">
+              <p>
+                <strong>Description:</strong> I can assist with queries
+                regarding our services and products.
+              </p>
+              <p><strong>Contact:</strong> support@company.com</p>
+            </div>
+            <div class="profile-footer">
+              <button id="contactSupport">Contact Support</button>
             </div>
           </div>
-        </section>
-      </main>
+
+          <!-- User Profile Modal (Hidden by default) -->
+          <div class="modal-content" id="userProfile">
+            <span class="close-button">&times;</span>
+            <div class="profile-header">
+              <img src="image/user.jpg" alt="User Avatar" class="avatar" />
+              <h2>User Name</h2>
+              <p>Regular User</p>
+            </div>
+            <div class="profile-body">
+              <p>
+                <strong>Description:</strong> This is the profile of a regular
+                user. Customize as needed.
+              </p>
+              <p><strong>Phone:</strong> 03892266812</p>
+              <p><strong>Email:</strong> user@example.com</p>
+              <p><strong>Address:</strong> 111 Dp</p>
+            </div>
+            <div class="profile-footer">
+              <button id="editProfile">Edit Profile</button>
+            </div>
+          </div>
+          <!-- Chat Section -->
+          <section class="chat-section">
+            <div class="chat-container">
+              <div class="chat-box">
+                <div class="chat-bot"></div>
+                <div class="chat-input">
+                  <input
+                    type="text"
+                    placeholder="Type your message here..."
+                    data-i18n-placeholder="type_message"
+                  />
+                  <button class="button-submit" data-i18n="submit_button">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
-  </div>
-  <script src="./chatbot.js"></script>
-</body>
+    <script src="./chatbot.js"></script>
+  </body>
 </html>
