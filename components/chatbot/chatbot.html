@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Project</title>
     <link rel="stylesheet" href="chatbot.css" />
+    <script type="module" src="./chatbot.js"></script>
+
   </head>
   <body>
     <nav class="main-content-top">
@@ -24,7 +26,7 @@
           </option>
         </select>
       </div>
-      <h1 data-i18n="chat_ui">Chat UI</h1>
+      <h1 class="chat_ui" data-i18n="chat_ui">Chat UI</h1>
       <div class="user-settings">
         <span class="user-icon" id="dropdownButton">
           <img
@@ -75,69 +77,13 @@
             </svg>
           </button>
 
-          <h2>Viper</h2>
+          <h2 class="vipper-text">Viper</h2>
 
-          <!-- Language Switcher Dropdown -->
-          <div class="lang-menu">
-            <div class="selected-lang" id="selected-lang">
-              <img
-                id="flag-icon"
-                src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
-                alt="flag"
-              />
-              English
-            </div>
-            <ul id="lang-options">
-              <li>
-                <a
-                  href="#"
-                  class="en"
-                  data-value="en"
-                  data-flag="https://flagicons.lipis.dev/flags/4x3/gb.svg"
-                >
-                  <img
-                    src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
-                    alt="flag"
-                  />
-                  English
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="vie"
-                  data-value="vie"
-                  data-flag="https://flagicons.lipis.dev/flags/4x3/vn.svg"
-                >
-                  <img
-                    src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
-                    alt="flag"
-                  />
-                  Vietnamese
-                </a>
-              </li>
-            </ul>
-          </div>
+         
 
           <ul class="menu">
             <li>Chat UI</li>
-            <li>
-              <span data-i18n="menu_templates">All Templates</span>
-              <span class="badge">PRO</span>
-            </li>
-            <li>
-              <span data-i18n="menu_projects">Projects</span>
-              <span class="badge">PRO</span>
-            </li>
-            <li data-i18n="menu_other_pages">Other Pages</li>
-          </ul>
-
-          <div class="footer-user-setting">
-            <div class="pro-section">
-              <p data-i18n="upgrade">Go unlimited with PRO</p>
-              <button class="pro-btn" data-i18n="upgrade_btn">Upgrade</button>
-            </div>
-          </div>
+            
         </aside>
 
         <!-- Main Content -->
