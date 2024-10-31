@@ -94,8 +94,7 @@ const containerIcon = document.querySelector('.container-icon');
 // Lắng nghe sự kiện click trên nút
 containerIcon.addEventListener('click', () => {
     // Thêm hoặc xóa lớp 'active' để xoay mũi tên
-  containerIcon.classList.toggle('active');
-  toggleSidebar();
+    containerIcon.classList.toggle('active');
 });
 
 // Thêm toggle cho sidebar
@@ -180,6 +179,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+const buttonCloseSidebar = document.getElementsByClassName("close-sidebar")[0];
+const sidebarClass = document.getElementsByClassName("sidebar")[0];
+
+if (buttonCloseSidebar) {
+  buttonCloseSidebar.addEventListener("click", (e) => {
+    if (sidebarClass) {
+      sidebarClass.style.display = "none";
+    }
+  });
+}
 
 
 
