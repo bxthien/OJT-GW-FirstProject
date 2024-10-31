@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -46,26 +48,26 @@ body {
 }
 
 .menu {
-    list-style: none;       /* Remove bullet points from the list */
-    padding: 0;            /* Remove padding */
-    margin: 0;             /* Remove margin */
+    list-style: none;      
+    padding: 0;            
+    margin: 0;            
 }
 
 .menu li {
-    display: flex;          /* Use flexbox to align items */
-    align-items: center;    /* Center items vertically */
-    justify-content: space-between; /* Space between text and badge */
-    padding: 10px 0;       /* Maintain vertical padding */
-    font-size: 16px;       /* Font size for list items */
+    display: flex;         
+    align-items: center;   
+    justify-content: space-between;
+    padding: 10px 0;      
+    font-size: 16px;      
 }
 
 .menu .badge {
-    font-size: 12px;       /* Font size for badges */
-    background-color: #d0c4ff; /* Badge background color */
-    color: #6a44ff;        /* Badge text color */
-    padding: 2px 8px;      /* Padding for badges */
-    border-radius: 8px;    /* Rounded corners for badges */
-    margin-left: 8px;      /* Space between text and badge */
+    font-size: 12px;       
+    background-color: #d0c4ff; 
+    color: #6a44ff;      
+    padding: 2px 8px;      
+    border-radius: 8px;    
+    margin-left: 8px;      
 }
 
 .pro-section {
@@ -316,7 +318,7 @@ width: 40px;
 }
 
 
-
+/* ----------------------------------------------------------- */
 .lang-menu {
     position: relative;
     display: inline-block;
@@ -444,57 +446,82 @@ li {
 
 /* Add existing sidebar, chatbox, and general styles here */
 
+/* ----------------------------------------------------------- */
 
 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align items to the right */
+    padding: 10px;
+  }
+  
+  #userSettings {
+    margin-right: 10px;
+  }
+  
+  .language-switcher {
+    position: relative;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  /* CSS for styling the select dropdown with flag background */
 
 
+  .language-switcher {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #languageSelect {
+    appearance: none; /* Loại bỏ kiểu mặc định */
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 5px 10px 5px 30px; /* Thêm padding để tạo khoảng cách cho hình cờ */
+    background-color: white;
+    cursor: pointer;
+    background-size: 20px; /* Kích thước hình cờ */
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Vị trí của hình cờ */
+  }
+  
+  #languageSelect option {
+    padding: 10px; /* Padding cho các tùy chọn */
+  }
+  
 
+  /* -----------darkmode------------- */
 
-/* .language-dropdown {
-  position: relative;
-  display: inline-block;
+  .dark-mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6a44ff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.dropdown-toggle {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.dark-mode-btn:hover {
+    background-color: #5b39d8;
+    transform: scale(1.05);
 }
 
-.dropdown-toggle img {
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
+.dark-mode-btn svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  z-index: 1;
-}
 
-.language-dropdown:hover .dropdown-menu {
-  display: block;
-}
 
-.dropdown-item {
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
 
-.dropdown-item img {
-  width: 24px;
-  height: 16px;
-  margin-right: 8px;
-}
 
-.dropdown-item:hover {
-  background-color: #f1f1f1;
-} */
+
+
+
