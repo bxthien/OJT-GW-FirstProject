@@ -3,21 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link rel="stylesheet" href="Register.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="./components/Login/login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
 </head>
 <body>
-
-
-  <button id="darkModeToggle" class="dark-mode-btn"></button>
-
-
   <div class="container">
     <!-- Left Section -->
     <div class="left-section">
-      <h1>Firts Projects: Proposal for Chatbot Application Using Gemini API</h1>
+      <h1>First Projects: Proposal for Chatbot Application Using Gemini API</h1>
       <p>Create a chatbot gpt using python language what will be step for that</p>
       <div class="chat-response">
         <h2>CHAT A.I +</h2>
@@ -37,36 +31,27 @@
     <div class="right-section">
       <h2>Sign up with free trial</h2>
       <p>Empower your experience, sign up for a free account today</p>
-      <form id="form">
+      <form id="login-form">
         <label for="username">User Name*</label>
         <input type="username" id="username" placeholder="Enter User Name" required>
 
-        <label for="username">Phone*</label>
-        <input type="username" id="phone" placeholder="0123 456 789" required>
-
-        <label for="username">Address</đá>*</label>
-        <input type="username" id="address" placeholder="Enter Address" required>
-
-        <label for="username">Email Address*</label>
-        <input type="username" id="email" placeholder="ex.email@domain.com" required>
-        
         <label for="password">Password*</label>
-        <input type="password" id="password" placeholder="Enter password" required>
+        <input type="password" id="password" placeholder="Enter password" required >  
         <div class="checkbox">
           <input type="checkbox" id="show-password">
           <label for="show-password">Show Password</label>
         </div>
         
-        <button type="submit">Get started</button>
-        <p>Already have an account? <a href="/components/Login/login.html">Login</a></p>
+        <button type="submit" id="login-btn">Get started free</button>
+        <p>Already haven't an account? <a href="/components/register/Register.html">Register</a></p>
         
         <div class="or">Or better yet...</div>
         
-        <button class="social-login google"><i class="fa-brands fa-google"></i>Continue with Google</button>
+        <button class="social-login google"><img class="img" src="/components/register/img/images.png" alt="">Continue with Google</button>
         <button class="social-login apple"><i class="fa-brands fa-apple"></i>Continue with Apple</button>
       </form>
     </div>
   </div>
-  <script src="Register.js"></script>
+  <script src="./components/Login/script.js"></script>
 </body>
 </html>
