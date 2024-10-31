@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadLoginScript() {
   const script = document.createElement("script");
-  script.src = "components/login/login.js";
+  script.src = "components/Login/login.js";
   document.body.appendChild(script);
 }
 
@@ -46,7 +46,7 @@ function authenticateUser(users, username, password) {
 
   if (user) {
     alert(`Chào mừng, ${user.name}!`);
-    window.location.href = "index.html";
+    window.location.href = "../../index.html";
   } else {
     alert("Sai mật khẩu hoặc tên đăng nhập!");
   }
@@ -80,3 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+async function loadNavbar() {
+  const response = await fetch("./components/Login/login.html");
+  const LoginHtml = await response.text();
+  document.getElementById("login-page").innerHTML = LoginHtml;
+
+  const LoginCss = document.createElement("link");
+  LoginCss.rel = "stylesheet";
+  LoginCss.href = "./components/Login/login.css";
+  document.head.appendChild(LoginCss);
+}
+
+loadNavbar();

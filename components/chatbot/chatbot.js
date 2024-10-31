@@ -1,28 +1,12 @@
-async function loadChatbot() {
-  // Tải HTML
-  const response = await fetch("./components/chatbot/chatbot.html");
-  const chatbotHtml = await response.text();
-  document.getElementById("chatbot").innerHTML = chatbotHtml;
-
-  // Tạo và thêm CSS
-  const chatbotCss = document.createElement("link");
-  footerCss.rel = "stylesheet";
-  footerCss.href = "./components/chatbot/chatbot.css";
-  document.head.appendChild(chatbotCss);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownContent = document.getElementById("dropdownContent");
 
-  // Thêm sự kiện 'click' để toggle hiển thị dropdown
   dropdownButton.addEventListener("click", () => {
-    // Toggle display giữa block và none
     dropdownContent.style.opacity =
       dropdownContent.style.opacity === "0" ? "1" : "0";
   });
 
-  // Ẩn dropdown khi click ra bên ngoài
   document.addEventListener("click", (event) => {
     if (
       !dropdownButton.contains(event.target) &&
@@ -33,21 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Event listener to handle dropdown and language switcher interactions
 document.addEventListener("DOMContentLoaded", function () {
   const languageSelect = document.getElementById("languageSelect");
 
-  // Set initial background flag
   setFlagBackground(languageSelect);
 
-  // Event listener to change language
   languageSelect.addEventListener("change", function () {
     const selectedLang = languageSelect.value;
     setFlagBackground(languageSelect);
     changeLanguage(selectedLang);
   });
 
-  // Function to set the background flag image based on selected language
   function setFlagBackground(selectElement) {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const flagUrl = selectedOption.getAttribute("data-flag");
@@ -57,51 +37,42 @@ document.addEventListener("DOMContentLoaded", function () {
     selectElement.style.backgroundRepeat = "no-repeat";
     selectElement.style.backgroundPosition = "5px center";
   }
-  // Change language and flag icon
   langOptions.addEventListener("click", function (e) {
     if (e.target.tagName === "A") {
       const newLang = e.target.dataset.value;
       const newFlag = e.target.dataset.flag;
 
-      // Update selected language and flag
       selectedLang.innerHTML = `<img id="flag-icon" src="${newFlag}" alt="flag" /> ${
         newLang === "en" ? "English" : "Vietnamese"
       }`;
 
-      // Optionally, you can implement a function to change the text content here based on the selected language
       changeLanguage(newLang);
-    } // Hide language options after selection
+    }
     langOptions.style.display = "none";
   });
 
   function toggleSidebar() {
     const sidebar = document.querySelector(".sidebar");
-    sidebar.classList.toggle("active"); // Thêm hoặc xóa lớp 'active' để hiển thị hoặc ẩn sidebar
+    sidebar.classList.toggle("active");
   }
 
-  // Đóng sidebar khi nhấp bên ngoài sidebar
   document.addEventListener("click", function (event) {
     const sidebar = document.querySelector(".sidebar");
     const toggleButton = document.querySelector(".container-icon");
 
-    // Kiểm tra xem có nhấp vào sidebar hoặc nút mở sidebar không
     if (
       !sidebar.contains(event.target) &&
       !toggleButton.contains(event.target)
     ) {
-      sidebar.classList.remove("active"); // Ẩn sidebar nếu nhấp ra ngoài
+      sidebar.classList.remove("active");
     }
   });
 
-  // Chọn phần tử nút container-icon
   const containerIcon = document.querySelector(".container-icon");
-  // Lắng nghe sự kiện click trên nút
   containerIcon.addEventListener("click", () => {
-    // Thêm hoặc xóa lớp 'active' để xoay mũi tên
     containerIcon.classList.toggle("active");
   });
 
-  // Thêm toggle cho sidebar
   const sidebar = document.querySelector(".sidebar");
   containerIcon.addEventListener("click", () => {
     containerIcon.classList.toggle("active");
@@ -208,5 +179,3 @@ if (buttonCloseSidebar) {
     }
   });
 }
-
-loadChatbot();

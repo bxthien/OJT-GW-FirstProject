@@ -10,7 +10,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #CAD9F0;
+  background-color: #cad9f0;
   margin: 0;
 }
 
@@ -25,16 +25,18 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Left Section */
 .left-section {
-  flex: 1;
-  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  flex-direction: column;
+  padding: 30px;
   color: white;
   background: linear-gradient(135deg, #5461c8, #f274e7);
   align-items: center;
 }
-
 
 .left-section h1 {
   font-size: 1.5em;
@@ -47,7 +49,6 @@ body {
   margin-bottom: 20px;
 }
 
-
 .chat-response {
   background-color: rgba(255, 255, 255, 0.15);
   padding: 20px;
@@ -59,7 +60,8 @@ body {
   margin-bottom: 10px;
 }
 
-.chat-response p, .chat-response ol {
+.chat-response p,
+.chat-response ol {
   font-size: 1em;
   line-height: 1.6;
 }
@@ -67,54 +69,51 @@ body {
 .chat-response ol li {
   margin-bottom: 10px;
 }
-/* Message Input Box */
 .message-input {
-display: flex;
-align-items: center;
-background-color: transparent;
-border: solid rgb(218, 232, 241) 0.3px;
-padding: 1px;
-border-radius: 25px;
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-max-width: 500px;
-margin: 50px auto;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: solid rgb(218, 232, 241) 0.3px;
+  padding: 1px;
+  border-radius: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 90%;
+  margin: 50px auto;
 }
 
 .message-box {
-flex: 1;
-border: none;
-outline: none;
-background: transparent;
-font-size: 1em;
-padding: 10px;
-color: #ffffff;
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1em;
+  padding: 10px;
+  color: #ffffff;
 }
 
 .message-box::placeholder {
-color: #ffffff;
+  color: #ffffff;
 }
 
 .send-btn {
-width: 50px;
-height: 50px;
-border: none;
-color: rgb(115, 156, 225);
-font-size: 1em;
-padding: 10px;
-border-radius: 50%;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: background-color 0.3s;
-margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  color: rgb(115, 156, 225);
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  margin-left: 10px;
 }
 
 .send-btn:hover {
-background-color: #4051b5;
+  background-color: #4051b5;
 }
-
-
 
 /* Right Section */
 .right-section {
@@ -125,15 +124,13 @@ background-color: #4051b5;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll ;
+  overflow-y: scroll;
   margin-top: 30px;
 }
 
 .right-section h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  
-  
 }
 
 .right-section p {
@@ -145,7 +142,6 @@ background-color: #4051b5;
 form {
   width: 90%;
   height: 90%;
-  
 }
 
 label {
@@ -155,7 +151,8 @@ label {
   margin-bottom: 5px;
 }
 
-input[type="username"], input[type="password"] {
+input[type="username"],
+input[type="password"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -180,226 +177,238 @@ button[type="submit"]:hover {
   background-color: #4051b5;
 }
 
-  
-  
-  /* Right Section */
-  .right-section {
-    flex: 1;
-    padding: 70px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-  }
-  
-  .right-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    
-    
-  }
-  
-  .right-section p {
-    font-size: 0.9em;
-    margin-bottom: 20px;
-    color: #666;
-  }
- 
-  .checkbox{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 15px;
-  }
-  .checkbox > input{
-    width: 18px;
-    height: 18px;
-  }
+/* Right Section */
+.right-section {
+  flex: 1;
+  padding: 70px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
 
-  form {
-    width: 90%;
-    height: 90%;
-    
-  }
-  
-  label {
-    display: block;
-    font-size: 0.9em;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 30px;
-    border: 1px solid #ccc;
-    font-size: 0.9em;
-  }
-  
-  button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    background-color: #606ed6;
-    color: white;
-    font-size: 1em;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-bottom: 15px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #4051b5;
-  }
-  
-  .or {
-    text-align: center;
-    width: 100%;
-    margin: 15px 0;
-    font-size: 0.9em;
-    color: #aaa;
-  }
-  
-  .social-login {
-    width: 100%;
-    padding: 12px;
-    font-size: 1em;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.right-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
 
- 
-  .google {
-    background-color: #fff;
-    border-radius: 30px;
-  }
-  
-  .apple {
-    background-color: #f0f0f0;
-    gap: 10px;
-    border-radius: 30px;
-  }
-  
-  .social-login img {
-    margin-right: 10px;
-  }
-  .img {
-    width: 25px;
-    height: 25px;
-  }
-  
-  /* Màn hình trung bình (Máy tính bảng ngang và dọc) */
+.right-section p {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.checkbox {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.checkbox > input {
+  width: 18px;
+  height: 18px;
+}
+
+form {
+  width: 90%;
+  height: 90%;
+}
+
+label {
+  display: block;
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 0.9em;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #606ed6;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+button[type="submit"]:hover {
+  background-color: #4051b5;
+}
+
+.or {
+  text-align: center;
+  width: 100%;
+  margin: 15px 0;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.social-login {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.google {
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.apple {
+  background-color: #f0f0f0;
+  gap: 10px;
+  border-radius: 30px;
+}
+
+.social-login img {
+  margin-right: 10px;
+}
+.img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Màn hình trung bình (Máy tính bảng ngang và dọc) */
 @media (max-width: 1280px) {
   .container {
-      flex-direction: column;
-      height: auto;
-      padding: 40px;
-      background-color: #CAD9F0;
-      
-      
+    flex-direction: column;
+    height: auto;
+    padding: 40px;
+    background-color: transparent;
   }
-  label{
+  label {
     text-align: left;
     padding-left: 10px;
   }
 
-  .left-section{
-      padding: 30px;
-      height: auto;
-      text-align: center;
-      border-radius: 30px 30px 0 0;
+  .left-section {
+    padding: 30px;
+    height: auto;
+    text-align: center;
+    border-radius: 30px 30px 0 0;
+    width: 100%;
   }
-  .right-section{
-      padding: 30px;
-      height: auto;
-      text-align: center;
-      border-radius:  0 0 30px 30px;
-      margin-top: -20px;
+  .right-section {
+    padding: 30px;
+    height: auto;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    margin-top: -20px;
   }
   .message-input {
-      max-width: 80%;
-      margin: 20px auto;
+    min-width: 80%;
+    margin: 20px auto;
   }
 
   .right-section h2 {
-      font-size: 1.5em;
+    font-size: 1.5em;
   }
 
-  button[type="submit"], .social-login {
-      font-size: 0.9em;
-      padding: 12px;
+  button[type="submit"],
+  .social-login {
+    font-size: 0.9em;
+    padding: 12px;
+  }
+
+  .dark-mode-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6a44ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1000;
   }
 }
 
 /* Màn hình nhỏ (Điện thoại) */
 @media (max-width: 480px) {
   body {
-      
-      background-color: #CAD9F0;
-      height: auto;
-      
+    background-color: #cad9f0;
+    height: auto;
   }
 
   .container {
-      flex-direction: column;
-      box-shadow: none;
-      padding: 20px;
+    flex-direction: column;
+    box-shadow: none;
+    padding: 20px;
   }
-  label{
+  label {
     text-align: left;
     padding-left: 10px;
   }
   .left-section {
-      padding: 20px;
-      text-align: center;
-      border-radius: 10px 10px 0 0;
-  }
-  .right-section{
     padding: 20px;
-      text-align: center;
-      border-radius:  0 0 10px 10px;
-    
-
+    text-align: center;
+    border-radius: 10px 10px 0 0;
   }
-  .left-section h1, .right-section h2 {
-      font-size: 1.4em;
+  .right-section {
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+  }
+  .left-section h1,
+  .right-section h2 {
+    font-size: 1.4em;
   }
 
-  .right-section p, .left-section p {
-      font-size: 0.8em;
+  .right-section p,
+  .left-section p {
+    font-size: 0.8em;
   }
 
   .message-input {
-      max-width: 100%;
-      margin: 15px auto;
-      padding: 10px;
+    max-width: 100%;
+    margin: 15px auto;
+    padding: 10px;
   }
 
   .message-box {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 
-  input[type="email"], input[type="password"], button[type="submit"], .social-login {
-      font-size: 0.8em;
-      padding: 10px;
+  input[type="email"],
+  input[type="password"],
+  button[type="submit"],
+  .social-login {
+    font-size: 0.8em;
+    padding: 10px;
   }
 
   button[type="submit"] {
-      padding: 12px;
+    padding: 12px;
   }
 }
-
-
 
 /* -----------------DARKMODE-------------------- */
 .dark-mode-btn {
@@ -429,24 +438,22 @@ button[type="submit"]:hover {
   height: 20px;
 }
 
-
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: #2c2c2c;
   color: #e0e0e0;
 }
 
-body.dark-mode p, a {
+body.dark-mode p,
+a {
   color: #f0f0f0;
 }
-
 
 body.dark-mode .container {
   background-color: #4a4a4a;
   color: #ffffff;
 }
 
- 
 body.dark-mode .right-section {
   background-color: #4a4a4a;
   color: #ffffff;
@@ -460,9 +467,8 @@ body.dark-mode .send-btn {
   color: #9bb2e3;
 }
 
-
 /* Input fields in dark mode */
-body.dark-mode input[type="username"], 
+body.dark-mode input[type="username"],
 body.dark-mode input[type="password"] {
   background-color: #555;
   border: 1px solid #777;
@@ -472,14 +478,14 @@ body.dark-mode input[type="password"] {
 /* Button in dark mode */
 body.dark-mode button[type="submit"],
 body.dark-mode .social-login {
-  background-color: #2e2f33; 
-    color: #ffffff;
+  background-color: #606ed6;
+  color: #ffffff;
   border: 1px solid #777;
 }
 
 body.dark-mode button[type="submit"]:hover,
 body.dark-mode .social-login:hover {
-  background-color: #44464b;;
+  background-color: #606ed6;
 }
 
 /* Dark mode label color */
@@ -490,10 +496,9 @@ body.dark-mode label {
 /* Dark mode placeholder color */
 body.dark-mode input[type="username"]::placeholder,
 body.dark-mode input[type="password"]::placeholder {
-  color: #ccc; 
+  color: #ccc;
 }
 
-body.dark-mode  .left-section {
-  background: linear-gradient(135deg, #202350, #5a2b6f);
+body.dark-mode .left-section {
+  background: linear-gradient(135deg, #5461c8, #f274e7);
 }
-
