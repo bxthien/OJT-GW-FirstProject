@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import pretty from 'pretty-html';
+
 
 function formatHTMLResponse(htmlString) {
   return pretty(htmlString, { ocd: true });
@@ -50,9 +50,18 @@ function createMessageElement(text, sender) {
   avatar.alt = 'avatar';
 
   const messageElement = document.createElement('p');
-  messageElement.textContent = text; // Hiển thị text thông thường
-
+  messageElement.classList.add('typing-effect');
   messageContainer.appendChild(avatar);
+
+  let index = 0;
+  function typeEffect() {
+    if (index < text.length) {
+      messageElement.textContent += text[index];
+      index++;
+      setTimeout(typeEffect, 40); // Điều chỉnh tốc độ gõ
+    }
+  }
+  typeEffect();
   messageContainer.appendChild(messageElement);
   
   return messageContainer;
