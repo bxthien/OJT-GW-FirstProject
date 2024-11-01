@@ -142,7 +142,7 @@ header nav {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 40px;
+  top: 50px;
   right: 0;
   background-color: #fff;
   border: #333;
@@ -272,6 +272,7 @@ header nav {
   width: 90%;
   border-radius: 8px;
   height: 35px;
+  padding: 5px;
 }
 
 .chat-input button {
@@ -543,6 +544,8 @@ li {
 }
 
 .chat_ui{
+  flex-grow: 1;
+  text-align: center;
   font-size: 42px;
   line-height: 58px;
   font-weight: 600;
