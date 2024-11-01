@@ -10,42 +10,25 @@
   </head>
   <body>
     <nav class="main-content-top">
-      <div class="language-switcher">
-        <select id="languageSelect">
-          <option
-            value="en"
-            data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png"
-          >
-            EN
-          </option>
-          <option
-            value="vie"
-            data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png"
-          >
-            VN
-          </option>
-        </select>
-      </div>
-      <h1 class="chat_ui" data-i18n="chat_ui">Chat UI</h1>
-      <div class="user-settings">
-        <span class="user-icon" id="dropdownButton">
-          <img
-            class="avatar"
-            src="https://www.w3schools.com/howto/img_avatar.png"
-            alt="avatar"
-          />
-        </span>
-        <div class="dropdown" id="dropdownContent">
-          <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
-          <span class="dropdown-selected" data-i18n="profile_setting"
-            >Profile Setting</span
-          >
-          <span class="dropdown-logout" data-i18n="logout">Log out</span>
-        </div>
-        <button id="darkModeToggle" class="dark-mode-btn"></button>
-      </div>
-      
-    </nav>
+  <h1 class="chat_ui" data-i18n="chat_ui">Chat UI</h1>
+  <button id="darkModeToggle" class="dark-mode-btn"></button>
+  <div class="language-switcher">
+    <select id="languageSelect">
+      <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png">EN</option>
+      <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png">VN</option>
+    </select>
+  </div>
+  <div class="user-settings">
+    <span class="user-icon" id="dropdownButton">
+      <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+    </span>
+    <div class="dropdown" id="dropdownContent">
+      <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
+      <span class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
+      <span class="dropdown-logout" data-i18n="logout">Log out</span>
+    </div>
+  </div>
+</nav>
 
     <div class="background">
       <div class="container-icon">

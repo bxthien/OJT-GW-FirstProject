@@ -1,5 +1,4 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import pretty from 'pretty-html';
 
 function formatHTMLResponse(htmlString) {
   return pretty(htmlString, { ocd: true });
@@ -9,13 +8,12 @@ function formatHTMLResponse(htmlString) {
 const genAI = new GoogleGenerativeAI(`${import.meta.env.VITE_API_KEY}`);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-
 let history = [];
 let isSending = false;
 
 async function getResponse(prompt) {
   const button = document.querySelector(".button-submit");
-  
+
   // Kích hoạt loading
   button.classList.add("loading");
 
@@ -27,7 +25,9 @@ async function getResponse(prompt) {
     const response = await result.response;
 
     // Kiểm tra và lấy mã HTML từ response JSON
-    const content = response.candidates?.[0]?.content?.parts?.[0]?.text ?? "Lỗi phản hồi từ bot.";
+    const content =
+      response.candidates?.[0]?.content?.parts?.[0]?.text ??
+      "Lỗi phản hồi từ bot.";
     return content;
   } catch (error) {
     console.error("Error getting response from AI:", error);
@@ -39,28 +39,38 @@ async function getResponse(prompt) {
 }
 
 function createMessageElement(text, sender) {
-  const messageContainer = document.createElement('div');
+  const messageContainer = document.createElement("div");
   messageContainer.classList.add(sender.toLowerCase());
 
-    const avatar = document.createElement('img');
-  avatar.className = 'avatar';
-  avatar.src = sender.toLowerCase() === 'bot'
-    ? 'https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg' // Avatar bot
-    : 'https://www.w3schools.com/howto/img_avatar.png'; // Avatar người dùng
-  avatar.alt = 'avatar';
+  const avatar = document.createElement("img");
+  avatar.className = "avatar";
+  avatar.src =
+    sender.toLowerCase() === "bot"
+      ? "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg" // Avatar bot
+      : "https://www.w3schools.com/howto/img_avatar.png"; // Avatar người dùng
+  avatar.alt = "avatar";
 
-  const messageElement = document.createElement('p');
-  messageElement.textContent = text; // Hiển thị text thông thường
-
+  const messageElement = document.createElement("p");
+  messageElement.classList.add("typing-effect");
   messageContainer.appendChild(avatar);
+
+  let index = 0;
+  function typeEffect() {
+    if (index < text.length) {
+      messageElement.textContent += text[index];
+      index++;
+      setTimeout(typeEffect, 40); // Điều chỉnh tốc độ gõ
+    }
+  }
+  typeEffect();
   messageContainer.appendChild(messageElement);
-  
+
   return messageContainer;
 }
 
 async function handleSubmit(event) {
   event.preventDefault();
-  if (isSending) return; 
+  if (isSending) return;
   isSending = true;
 
   const userMessageInput = document.querySelector(".chat-input input");
@@ -92,11 +102,14 @@ async function handleSubmit(event) {
   isSending = false;
 }
 
-document.querySelector(".chat-input button").addEventListener("click", handleSubmit); 
-document.querySelector(".chat-input input").addEventListener("keyup", (event) => {
-  if (event.key === "Enter") handleSubmit(event);
-});
-
+document
+  .querySelector(".chat-input button")
+  .addEventListener("click", handleSubmit);
+document
+  .querySelector(".chat-input input")
+  .addEventListener("keyup", (event) => {
+    if (event.key === "Enter") handleSubmit(event);
+  });
 
 async function loadChatbot() {
   // Tải HTML
@@ -129,11 +142,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-const containerIcon = document.querySelector('.container-icon');
-// Lắng nghe sự kiện click trên nút
-containerIcon.addEventListener('click', () => {
-    // Thêm hoặc xóa lớp 'active' để xoay mũi tên
-    containerIcon.classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function () {
+  const containerIcon = document.querySelector(".container-icon");
+  const sidebar = document.querySelector(".sidebar");
+
+  containerIcon.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+  });
 });
 
 // Event listener to handle dropdown and language switcher interactions
@@ -295,7 +310,7 @@ const sidebarClass = document.getElementsByClassName("sidebar")[0];
 if (buttonCloseSidebar) {
   buttonCloseSidebar.addEventListener("click", (e) => {
     if (sidebarClass) {
-      sidebarClass.style.display = "none";
+      sidebarClass.classList.toggle("active");
     }
   });
 }
