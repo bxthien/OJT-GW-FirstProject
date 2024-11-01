@@ -255,6 +255,38 @@ width: 40px;
     border-radius: 8px;
    
 }
+<<<<<<< HEAD
+=======
+@media (max-width: 768px) {
+.chat_ui{
+    font-size: 20px;
+}
+
+  .close-sidebar {
+    display: flex;
+  }
+  .close-sidebar svg {
+    color: #121212;
+    clip-path: #121212;
+  }
+  .background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* width: calc(100vw - 16px); */
+    /* padding: 0px 32px; */
+  }
+  .container {
+    flex-direction: row;
+    /* height: 100%; */
+    height: calc(100vh);
+  }
+    .sidebar {
+      display: none;
+      /* Mặc định ẩn sidebar */
+    }
+>>>>>>> main
 
 .main-content-top{
     position: relative;
@@ -262,7 +294,127 @@ width: 40px;
     width: 100%;
 }
 
+<<<<<<< HEAD
 .footer-sidebar{
+=======
+/* -----------------DARKMODE-------------------- */
+.dark-mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6a44ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1000;
+  }
+  
+  .dark-mode-btn:hover {
+    background-color: #5b39d8;
+  }
+  
+  .dark-mode-btn svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+  }
+
+/* Dark Mode Styles */
+body.dark-mode .main-content-top {
+    background-color: #2e2e2e;
+    color: #e8eaed;
+  }
+
+  .dark-mode .background {
+    background-color: #2e2e2e;
+  }
+  
+  .dark-mode .sidebar {
+    background-color: #575555;
+    color: #e8eaed;
+  }
+  
+  .dark-mode .container {
+    background-color: #2e2e2e;
+  }
+  
+  .dark-mode .menu li {
+    color: #e8eaed;
+  }
+  
+  .dark-mode .pro-section {
+    background-color: #444;
+  }
+  
+  .dark-mode .pro-btn {
+    background-color: #6a44ff;
+  }
+  
+  .dark-mode .main-content {
+    background-color: #575555;
+    color: #e8eaed;
+    border: #555;
+  }
+
+
+  .dark-mode .chat-box {
+    background-color: #424141;
+    color: #313131;
+  }
+
+  .dark-mode .chat-input input {
+    background-color: #444;
+    color: #e8eaed;
+    border: 1px solid #555;
+  }
+  
+  .dark-mode .chat-input button {
+    background-color: #6a44ff;
+  }
+  
+  .dark-mode .dropdown {
+    background-color: #444;
+    color: #e8eaed;
+  }
+  
+  .dark-mode .modal-content {
+    background-color: #333;
+    color: #e8eaed;
+  }
+  
+  .dark-mode .footer-sidebar {
+    background-color: #444;
+  }
+  
+  .dark-mode .lang-menu {
+    background-color: #444;
+  }
+  
+  .dark-mode .button-submit {
+    background-color: #6a44ff;
+  }
+
+  .dark-mode #languageSelect {
+    background-color: #444;
+    color: wheat;
+  }
+  
+  /* Dark Mode Toggle Button */
+  .dark-mode-btn {
+    background-color: #444;
+  }
+
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+
+  .sidebar {
+>>>>>>> main
     display: flex;
     flex-direction: row;
     gap:4px;
