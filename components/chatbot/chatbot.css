@@ -735,6 +735,11 @@ body.dark-mode .main-content-top {
     flex-direction: column;
     position: relative;
   }
+
+  .dark-mode .chat-box p {
+    background-color: #313030;
+    color: white;
+  }
  
   
   .dark-mode .menu li {
