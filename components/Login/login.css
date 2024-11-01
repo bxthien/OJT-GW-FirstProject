@@ -14,6 +14,7 @@ body {
   margin: 0;
 }
 
+
 .container {
   display: flex;
   max-width: 1200px;
@@ -113,6 +114,10 @@ body {
 
 .send-btn:hover {
   background-color: #4051b5;
+}
+
+.link {
+  color: blue;
 }
 
 /* Right Section */
@@ -493,6 +498,7 @@ body.dark-mode label {
   color: #ffffff;
 }
 
+
 /* Dark mode placeholder color */
 body.dark-mode input[type="username"]::placeholder,
 body.dark-mode input[type="password"]::placeholder {
@@ -501,4 +507,53 @@ body.dark-mode input[type="password"]::placeholder {
 
 body.dark-mode .left-section {
   background: linear-gradient(135deg, #5461c8, #f274e7);
+}
+
+body.dark-mode #languageSelect,
+body.dark-mode #languageSelect option {
+  background-color: #333;
+  color: wheat;
+}
+
+
+/* Laguage button */
+.language-switcher {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#languageSelect {
+  appearance: none;
+  padding: 6px 10px 6px 30px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 6px center;
+  background-size: 20px;
+  transition: background-color 0.3s;
+}
+
+#languageSelect:hover {
+  background-color: #e0e0e0;
+}
+
+#languageSelect option {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px;
+}
+
+.language-switcher select:focus {
+  outline: none;
+  border-color: #606ed6;
+}
+
+.language-switcher select:focus-visible {
+  outline: none;
 }

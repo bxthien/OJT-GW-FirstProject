@@ -119,3 +119,120 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+
+/* Laguage button */
+.language-switcher {
+  position: fixed;
+  top: 90px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#languageSelect {
+  appearance: none;
+  padding: 6px 10px 6px 30px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 6px center;
+  background-size: 20px;
+  transition: background-color 0.3s;
+}
+
+#languageSelect:hover {
+  background-color: #e0e0e0;
+}
+
+#languageSelect option {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px;
+}
+
+.language-switcher select:focus {
+  outline: none;
+  border-color: #606ed6;
+}
+
+.language-switcher select:focus-visible {
+  outline: none;
+}
+
+
+
+/* -----------------DARKMODE-------------------- */
+.dark-mode-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6a44ff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+  background-color: #5b39d8;
+}
+
+.dark-mode-btn svg {
+  fill: white;
+  width: 20px;
+  height: 20px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .title,
+body.dark-mode .description {
+  color: wheat;
+}
+
+
+button.dark-mode-btn {
+  background-color: #666;
+  color: white;
+}
+
+body.dark-mode #languageSelect,
+body.dark-mode #languageSelect option {
+  background-color: #333;
+  color: wheat;
+}
+
+
+.profile {
+  background-color: white; 
+  color: black; 
+}
+
+body.dark-mode .profile {
+  background-color: #555353; 
+  color: white; 
+}
+
+body.dark-mode .profile .profile-name,
+body.dark-mode .hometown,
+body.dark-mode .profile .bio {
+  color: white; 
+}
+
+body.dark-mode .profile .age-gender {
+  color: #7aa8e0;
+}

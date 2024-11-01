@@ -292,8 +292,6 @@ header nav {
   justify-content: space-between;
   align-items: center;
   background-color: #cad9f0;
-
-  /* background-color: ; */
 }
 
 .footer-sidebar {
@@ -342,9 +340,9 @@ header nav {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  border-radius: 4px; /* Rounded corners for the menu */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  transition: all 0.3s ease; /* Smooth transition */
+  border-radius: 4px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s ease; 
 }
 
 .selected-lang {
@@ -354,76 +352,43 @@ header nav {
   display: flex;
   align-items: center;
   background-color: white;
-  transition: background-color 0.3s; /* Smooth background transition */
+  transition: background-color 0.3s;
 }
 
 .selected-lang:hover {
-  background-color: #f0f0f0; /* Change background on hover */
+  background-color: #f0f0f0;
 }
 
 .selected-lang img {
-  width: 25px; /* Increased size for better visibility */
-  margin-right: 10px; /* Space between flag and text */
+  width: 25px;
+  margin-right: 10px;
 }
 
 #lang-options {
-  display: none; /* Initially hidden */
+  display: none;
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 150px; /* Fixed width for the dropdown */
+  width: 150px; 
   z-index: 1;
-  margin-top: 5px; /* Space between selected lang and options */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-#lang-options li {
-  padding: 10px 15px;
-}
-
-#lang-options li a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s; /* Smooth background transition */
-}
-
-#lang-options li a img {
-  width: 25px; /* Increased size for better visibility */
-  margin-right: 10px; /* Space between flag and text */
-}
-
-#lang-options li:hover {
-  background-color: #e0e0e0; /* Highlight on hover */
-}
-
-ul {
-  list-style-type: none; /* No bullet points */
-  padding: 0;
-  margin: 0; /* Remove default margins */
-}
-
-li {
-  margin: 0; /* Remove default margins */
-  font-size: 18px; /* Font size for better readability */
-  cursor: pointer; /* Change cursor to pointer */
+  margin-top: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 /* Additional styling for the text list */
 #text-list {
-  margin-top: 20px; /* Space between language menu and text list */
+  margin-top: 20px; 
   padding: 10px;
-  border: 1px solid #ccc; /* Border for text list */
-  border-radius: 4px; /* Rounded corners */
-  background-color: #fff; /* White background */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 /* Modal styles */
 .modal-content {
-  display: none; /* Hidden by default */
+  display: none; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -462,7 +427,7 @@ li {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end; 
   padding: 10px;
 }
 
@@ -485,19 +450,19 @@ li {
 }
 
 #languageSelect {
-  appearance: none; /* Loại bỏ kiểu mặc định */
+  appearance: none; 
   border: 1px solid #ccc;
   border-radius: 25px;
-  padding: 5px 10px 5px 30px; /* Thêm padding để tạo khoảng cách cho hình cờ */
+  padding: 5px 10px 5px 30px; 
   background-color: white;
   cursor: pointer;
-  background-size: 20px; /* Kích thước hình cờ */
+  background-size: 20px; 
   background-repeat: no-repeat;
-  background-position: 10px center; /* Vị trí của hình cờ */
+  background-position: 10px center; 
 }
 
 #languageSelect option {
-  padding: 10px; /* Padding cho các tùy chọn */
+  padding: 10px; 
 }
 
 
@@ -533,12 +498,11 @@ li {
   width: 24px;
   height: 24px;
   fill: #e8eaed;
-  /* Màu của biểu tượng */
   transition: transform 0.3s ease;
 }
 
 .close-sidebar:hover svg {
-  transform: scale(1.1); /* Hiệu ứng khi hover vào nút */
+  transform: scale(1.1); 
 }
 
 .chat_ui{

@@ -324,8 +324,7 @@ function updateUI(language) {
   });
 }
 
-// Initialize the UI with the default language
-updateUI("en"); // Change this to the default language you want
+updateUI("en"); 
 
 
 
