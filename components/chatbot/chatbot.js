@@ -255,6 +255,54 @@ if (buttonCloseSidebar) {
 }
 
 
+const translations = {
+  en: {
+    chat_ui: "Chat UI",
+    chat_ui2: "Chat UI",
+    hey: "Hey, Quang Vu",
+    profile_setting: "Profile Setting",
+    logout: "Log out",
+    submit_button: "Submit",
+    type_message: "Type your message here...", // English message placeholder
+  },
+  vie: {
+    chat_ui: "Giao diện Trò chuyện",
+    chat_ui2: "Giao diện Trò chuyện",
+    hey: "Chào, Quang Vu",
+    profile_setting: "Cài đặt Hồ sơ",
+    logout: "Đăng xuất",
+    submit_button: "Gửi",
+    type_message: "Nhập tin nhắn của bạn ở đây...", // Vietnamese message placeholder
+  },
+};
+
+document.getElementById("languageSelect").addEventListener("change", (event) => {
+  const selectedLanguage = event.target.value;
+  updateUI(selectedLanguage);
+});
+
+function updateUI(language) {
+  const elements = document.querySelectorAll("[data-i18n], [data-i18n-placeholder]");
+  
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-i18n") || element.getAttribute("data-i18n-placeholder");
+    if (translations[language][key]) {
+      if (element.hasAttribute("placeholder")) {
+        // Update the placeholder for input fields
+        element.placeholder = translations[language][key];
+      } else {
+        // Update the text content for other elements
+        element.textContent = translations[language][key];
+      }
+    }
+  });
+}
+
+// Initialize the UI with the default language
+updateUI("en"); // Change this to the default language you want
+
+
+
 
 // --------DARKMODE------------
 document.addEventListener("DOMContentLoaded", () => {
