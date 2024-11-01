@@ -138,11 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-const containerIcon = document.querySelector('.container-icon');
-// Lắng nghe sự kiện click trên nút
-containerIcon.addEventListener('click', () => {
-    // Thêm hoặc xóa lớp 'active' để xoay mũi tên
-    containerIcon.classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function () {
+  const containerIcon = document.querySelector(".container-icon");
+  const sidebar = document.querySelector(".sidebar");
+
+  containerIcon.addEventListener("click", () => {
+    sidebar.classList.toggle("active"); 
+  });
 });
 
 // Event listener to handle dropdown and language switcher interactions

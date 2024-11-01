@@ -619,15 +619,18 @@ li {
     /* height: 100%; */
     height: calc(100vh);
   }
+    .sidebar {
+      display: none;
+      /* Mặc định ẩn sidebar */
+    }
 
-  .sidebar {
+  .sidebar.active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
     width: 80%;
     height: 100%;
     margin-bottom: 20px;
@@ -708,6 +711,7 @@ li {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .sidebar {
+    display: flex;
     width: 35%;
   }
 
