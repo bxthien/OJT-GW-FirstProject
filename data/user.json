@@ -1,0 +1,41 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "a",
+      "password": "1",
+      "name": "Nguyen Van A",
+      "email": "nguyenvana@gmail.com",
+      "address": "123 ABC Street, Hanoi",
+      "phone": "0912345678"
+    },
+    {
+      "id": 2,
+      "username": "tranthib",
+      "password": "password456",
+      "name": "Tran Thi B",
+      "email": "tranthib@gmail.com",
+      "address": "456 DEF Street, Hanoi",
+      "phone": "0912345678"
+    },
+    {
+      "id": 3,
+      "username": "levanc",
+      "password": "password789",
+      "name": "Le Van C",
+      "email": "levanc@gmail.com",
+      "address": "789 GHI Street, Hanoi",
+      "phone": "0912345678"
+    },
+
+    {
+      "id": 4,
+      "username": "phamthid",
+      "password": "password321",
+      "name": "Pham Thi D",
+      "email": "phamthid@gmail.com",
+      "address": "321 JKL Street, Hanoi",
+      "phone": "0912345678"
+    }
+  ]
+}
