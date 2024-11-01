@@ -4,27 +4,27 @@ UIdataCSS.rel = 'stylesheet';
 UIdataCSS.href = 'UIdata.css';
 document.head.appendChild(UIdataCSS);
 
-// Dữ liệu mẫu cho các câu hỏi và câu trả lời
-const data = {
-    "weather": "Today is sunny.",
-    "how are you": "I'm fine",
-    "name": "I'm your AI assistant.",
-    "joke": "Why did the computer go to the doctor? Because it had a virus!",
-};
+// Mảng lưu trữ dữ liệu đầu vào
+const trainingData = [];
 
-// Hàm lấy câu trả lời dựa trên câu hỏi nhập vào
-function getAnswer() {
-    const questionInput = document.getElementById("question").value.toLowerCase();
-    const answerOutput = document.getElementById("answer");
-
-    // Tìm câu trả lời dựa trên từ khóa
-    let answerFound = "No answer found for this question.";
-    for (let key in data) {
-        if (questionInput.includes(key)) {
-            answerFound = data[key];
-            break;
-        }
-    }
+// Hàm thêm cặp câu hỏi-trả lời vào mảng và hiển thị trên UI
+function addData() {
+    const question = document.getElementById("question").value;
+    const answer = document.getElementById("answer").value;
     
-    answerOutput.value = answerFound;
+    if (question && answer) {
+        // Thêm cặp dữ liệu vào mảng
+        trainingData.push({ question, answer });
+        
+        // Hiển thị dữ liệu đã nhập vào danh sách
+        const DataList = document.getElementById("DataList");
+        const listItem = document.createElement("li");
+        listItem.textContent = `Q: ${question} - A: ${answer}`;
+        DataList.appendChild(listItem);
+        
+        // Xóa các ô nhập liệu
+        document.getElementById("trainingForm").reset();
+    } else {
+        alert("Please enter both a question and an answer.");
+    }
 }
