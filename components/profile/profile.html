@@ -7,91 +7,50 @@
   <link rel="stylesheet" href="profile.css">
 </head>
 <body>
+    <div class="team-section">
+        <h2>The Vipers Team Profile</h2>
+        <p class="description">Below are the profiles of the members of the Vipers Team.</p>
+      
+        <div class="profiles" id="profiles">
+          <!-- Profiles sẽ được thêm vào đây -->
+        </div>
 
-<div class="team-section">
-  <h2>The Vipers Team Profile</h2>
-  <p class="description">Below are the profiles of the members of the Vipers Team.</p>
-
-  <div class="profiles">
-    <div class="profile">
-      <img src="ava/438303097_1721688964905838_7591600247271947806_n.jpg" alt="Wilson Torff">
-      <h3>Tất Chương</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
-    </div>
-
-    <div class="profile">
-      <img src="ava/trung.jpg" alt="Emily Chen">
-      <h3>Quốc Trung</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-    <div class="profile">
-      <img src="ava/IMG_1171.jpg" alt="John Doe">
-      <h3>Hoàng Hảo</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-    <div class="profile">
-      <img src="ava/image.png" alt="Sophia Lee">
-      <h3>Vũ Nguyễn</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-    <div class="profile">
-      <img src="ava/IMG_7804.jpg" alt="Michael Brown">
-      <h3>Ngân Trương</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-    <div class="profile">
-      <img src="ava/thang.jpg" alt="Sara Khan">
-      <h3>Thắng Trương</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-    <div class="profile">
-      <img src="ava/duy.jpg" alt="Liam Nguyen">
-      <h3>Duy Trần</h3>
-      <p>Programer Intern</p>
-      <p class="bio">Final year student at Greenwich University</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-  </div>
-</div>
+      
+      <script>
+        fetch('data.json')
+          .then(response => response.json())
+          .then(data => {
+            const profilesContainer = document.getElementById('profiles');
+            profilesContainer.innerHTML = ''; // Xóa nội dung hiện tại
+      
+            data.forEach(member => {
+              const profileDiv = document.createElement('div');
+              profileDiv.className = 'profile';
+              
+              // Icon giới tính
+              const genderIcon = member.age_gender.includes('Male') 
+                ? '<span class="gender-icon">♂️</span>' 
+                : '<span class="gender-icon">♀️</span>';
+      
+              profileDiv.innerHTML = `
+                <img src="${member.image}" alt="${member.name}">
+                <h3>${member.name}</h3>
+                <p class="age-gender">${member.age_gender} ${genderIcon}</p>
+                <p>Hometown: ${member.hometown}</p>
+                <p class="bio">"${member.desc}"</p>
+                <div class="social-icons">
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+              `;
+              
+              profilesContainer.appendChild(profileDiv);
+            });
+          })
+          .catch(error => console.error('Error fetching data:', error));
+      </script>
+  
 
 </body>
 </html>

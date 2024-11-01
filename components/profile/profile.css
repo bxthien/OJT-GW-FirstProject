@@ -100,6 +100,14 @@ body {
   color: #2c5282;
 }
 
+.gender-icon {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 1px;
+  }
+
+  
+
 @media (min-width: 768px) {
   .profiles {
     grid-template-columns: repeat(3, 1fr);

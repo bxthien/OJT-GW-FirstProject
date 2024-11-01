@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Tất Chương",
+        "age_gender": "Age: 22, Male",
+        "hometown": "Da Nang",
+        "desc": "The best way to predict the future is to create it.",
+        "image": "ava/438303097_1721688964905838_7591600247271947806_n.jpg"
+    },
+    {
+        "name": "Quốc Trung",
+        "age_gender": "Age: 21, Male",
+        "hometown": "Ha Tinh",
+        "desc": "The only way to do great work is to love what you do.",
+        "image": "ava/trung.jpg"
+    },
+    {
+        "name": "Hoàng Hảo",
+        "age_gender": "Age: 21, Female",
+        "hometown": "Da Nang",
+        "desc": "Don’t watch the clock; do what it does. Keep going.",
+        "image": "ava/IMG_1171.jpg"
+    },
+    {
+        "name": "Vũ Nguyễn",
+        "age_gender": "Age: 18, Male",
+        "hometown": "Da Nang",
+        "desc": "The only limit to our realization of tomorrow will be our doubts of today.",
+        "image": "ava/image.png"
+    },
+    {
+        "name": "Ngân Trương",
+        "age_gender": "Age: 22, Female",
+        "hometown": "Da Nang",
+        "desc": "The only limit to our realization of tomorrow will be our doubts of today.",
+        "image": "ava/IMG_7804.jpg"
+    },
+    {
+        "name": "Thắng Trương",
+        "age_gender": " Age: 21, Male",
+        "hometown": "Quang Nam",
+        "desc": "The secret to getting ahead is getting started.",
+        "image": "ava/thang.jpg"
+    },
+    {
+        "name": "Duy Trần",
+        "age_gender": "Age: 21, Male",
+        "hometown": "Kon Tum",
+        "desc": "In the middle of every difficulty lies opportunity.",
+        "image": "ava/duy.jpg"
+    }
+  
+]
