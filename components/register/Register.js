@@ -47,6 +47,31 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Please fill in all fields!");
     }
   });
+
+
+  const languageSelect = document.getElementById("languageSelect");
+
+    // Set initial background flag
+    setFlagBackground(languageSelect);
+  
+    // Event listener to change language
+    languageSelect.addEventListener("change", function() {
+      const selectedLang = languageSelect.value;
+      setFlagBackground(languageSelect);
+      changeLanguage(selectedLang);
+    });
+  
+    // Function to set the background flag image based on selected language
+    function setFlagBackground(selectElement) {
+      const selectedOption = selectElement.options[selectElement.selectedIndex];
+      const flagUrl = selectedOption.getAttribute("data-flag");
+  
+  
+      selectElement.style.backgroundImage = `url('${flagUrl}')`;
+      selectElement.style.backgroundSize = "17px";
+      selectElement.style.backgroundRepeat = "no-repeat";
+      selectElement.style.backgroundPosition = "5px center";
+    }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -77,3 +102,80 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+const translations = {
+  en: {
+    leftSection_title: "First Projects: Proposal for Chatbot Application Using Gemini API",
+    leftSection_subtitle: "Create a chatbot gpt using python language what will be step for that",
+    chatResponse_description: "In today's digital landscape, chatbots have become essential tools for enhancing customer engagement and automating responses. This proposal outlines the development of a chatbot application leveraging the Gemini API, designed to improve user experience and operational efficiency",
+    chatResponse_signature: "From Vipers Teams With Love",
+    messageInput_placeholder: "Reply...",
+    signupTitle: "Sign up with free trial",
+    signupSubtitle: "Empower your experience, sign up for a free account today",
+    usernameLabel: "User Name*",
+    usernamePlaceholder: "Enter User Name",
+    phoneLabel: "Phone*",
+    phonePlaceholder: "0123 456 789",
+    addressLabel: "Address*",
+    addressPlaceholder: "Enter Address",
+    emailLabel: "Email Address*",
+    emailPlaceholder: "ex.email@domain.com",
+    passwordLabel: "Password*",
+    passwordPlaceholder: "Enter Password",
+    getStartedButton: "Get started free",
+    haveAccountText: "Already haven't an account?",
+    loginLink: "Login",
+    orText: "Or better yet...",
+    googleLogin: "Continue with Google",
+    appleLogin: "Continue with Apple",
+  },
+  vie: {
+    leftSection_title: "Dự án đầu tiên: Đề xuất ứng dụng Chatbot sử dụng Gemini API",
+    leftSection_subtitle: "Tạo một chatbot GPT bằng ngôn ngữ Python, các bước để thực hiện là gì?",
+    chatResponse_description: "Trong bối cảnh kỹ thuật số hiện nay, chatbot đã trở thành công cụ thiết yếu để tăng cường tương tác khách hàng và tự động hóa phản hồi. Đề xuất này mô tả việc phát triển một ứng dụng chatbot sử dụng Gemini API, được thiết kế để cải thiện trải nghiệm người dùng và nâng cao hiệu quả hoạt động.",
+    chatResponse_signature: "Gửi tình yêu từ Vipers Team",
+    messageInput_placeholder: "Phản hồi...",
+    signupTitle: "Đăng ký dùng thử miễn phí",
+    signupSubtitle: "Nâng cao trải nghiệm của bạn, đăng ký tài khoản miễn phí ngay hôm nay",
+    usernameLabel: "Tên người dùng*",
+    usernamePlaceholder: "Nhập tên người dùng",
+    phoneLabel: "Số điện thoại*",
+    phonePlaceholder: "0123 456 789",
+    addressLabel: "Địa chỉ*",
+    addressPlaceholder: "Nhập địa chỉ",
+    emailLabel: "Địa chỉ Email*",
+    emailPlaceholder: "ex.email@domain.com",
+    passwordLabel: "Mật khẩu*",
+    passwordPlaceholder: "Nhập mật khẩu",
+    getStartedButton: "Bắt đầu miễn phí",
+    haveAccountText: "Đã có tài khoản?",
+    loginLink: "Đăng nhập",
+    orText: "Hoặc tốt hơn...",
+    googleLogin: "Tiếp tục với Google",
+    appleLogin: "Tiếp tục với Apple"
+  },  
+};
+
+document.getElementById("languageSelect").addEventListener("change", function() {
+  const selectedLanguage = this.value;
+  updateUI(selectedLanguage); 
+});
+
+function updateUI(language) {
+  const elements = document.querySelectorAll("[data-i18n], [data-i18n-placeholder]");
+  
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-i18n") || element.getAttribute("data-i18n-placeholder");
+    if (translations[language][key]) {
+      if (element.hasAttribute("placeholder")) {
+        element.placeholder = translations[language][key];
+      } else {
+        element.textContent = translations[language][key];
+      }
+    }
+  });
+}
+
+updateUI("en"); 

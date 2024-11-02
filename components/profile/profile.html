@@ -7,9 +7,19 @@
   <link rel="stylesheet" href="profile.css">
 </head>
 <body>
+
+  <button id="darkModeToggle" class="dark-mode-btn"></button>
+
+  <div class="language-switcher">
+    <select id="languageSelect">
+      <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png" data-i18n="language.en">EN</option>
+      <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png" data-i18n="language.vn">VN</option>
+    </select>
+  </div>
+
     <div class="team-section">
-        <h2>The Vipers Team Profile</h2>
-        <p class="description">Below are the profiles of the members of the Vipers Team.</p>
+        <h2 class="title" data-i18n="teamTitle">The Vipers Team Profile</h2>
+        <p class="description" data-i18n="teamDescription">Below are the profiles of the members of the Vipers Team.</p>
       
         <div class="profiles" id="profiles">
           <!-- Profiles sẽ được thêm vào đây -->
@@ -17,40 +27,7 @@
 
       </div>
       
-      <script>
-        fetch('data.json')
-          .then(response => response.json())
-          .then(data => {
-            const profilesContainer = document.getElementById('profiles');
-            profilesContainer.innerHTML = ''; // Xóa nội dung hiện tại
-      
-            data.forEach(member => {
-              const profileDiv = document.createElement('div');
-              profileDiv.className = 'profile';
-              
-              // Icon giới tính
-              const genderIcon = member.age_gender.includes('Male') 
-                ? '<span class="gender-icon">♂️</span>' 
-                : '<span class="gender-icon">♀️</span>';
-      
-              profileDiv.innerHTML = `
-                <img src="${member.image}" alt="${member.name}">
-                <h3>${member.name}</h3>
-                <p class="age-gender">${member.age_gender} ${genderIcon}</p>
-                <p>Hometown: ${member.hometown}</p>
-                <p class="bio">"${member.desc}"</p>
-                <div class="social-icons">
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-              `;
-              
-              profilesContainer.appendChild(profileDiv);
-            });
-          })
-          .catch(error => console.error('Error fetching data:', error));
-      </script>
-  
+  <script src="profile.js"></script>
 
 </body>
 </html>
