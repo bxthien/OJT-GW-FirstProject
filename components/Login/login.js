@@ -1,82 +1,96 @@
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("components/login/login.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("login-component").innerHTML = data;
-      loadLoginScript();
-    })
-    .catch((error) => console.error("Lỗi khi tải component đăng nhập:", error));
+// Lắng nghe sự kiện 'submit' từ form đăng nhập
+document.getElementById('login-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Ngăn form gửi yêu cầu theo cách thông thường
 
+  // Lấy giá trị username và password từ input
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-    const languageSelect = document.getElementById("languageSelect");
+  try {
+      // Gửi yêu cầu POST đến server với thông tin đăng nhập
+      const response = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+      });
 
-    // Set initial background flag
-    setFlagBackground(languageSelect);
-  
-    // Event listener to change language
-    languageSelect.addEventListener("change", function() {
-      const selectedLang = languageSelect.value;
-      setFlagBackground(languageSelect);
-      changeLanguage(selectedLang);
-    });
-  
-    // Function to set the background flag image based on selected language
-    function setFlagBackground(selectElement) {
-      const selectedOption = selectElement.options[selectElement.selectedIndex];
-      const flagUrl = selectedOption.getAttribute("data-flag");
-  
-  
-      selectElement.style.backgroundImage = `url('${flagUrl}')`;
-      selectElement.style.backgroundSize = "17px";
-      selectElement.style.backgroundRepeat = "no-repeat";
-      selectElement.style.backgroundPosition = "5px center";
-    }
+      // Chuyển phản hồi JSON từ server thành dữ liệu JavaScript
+      const data = await response.json();
 
-});
+      // Xử lý kết quả đăng nhập
+      if (response.ok) {
+          // Đăng nhập thành công
+          document.getElementById('message').textContent = 'Đăng nhập thành công!';
+          document.getElementById('message').style.color = 'green';
 
-function loadLoginScript() {
-  const script = document.createElement("script");
-  script.src = "components/Login/login.js";
-  document.body.appendChild(script);
-}
+          // Lưu tên đăng nhập vào session storage
+          sessionStorage.setItem('username', username);
+          window.location.href = '../../components/chatbot/chatbot.html';
 
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("login-btn")
-    .addEventListener("click", function (event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      let users = JSON.parse(localStorage.getItem("users"));
-
-      if (!users) {
-        fetch("../../data/user.json")
-          .then((response) => response.json())
-          .then((data) => {
-            users = data.user;
-            localStorage.setItem("users", JSON.stringify(users));
-          })
-          .catch((error) => console.error("Lỗi khi tải dữ liệu:", error));
+          // Chuyển hướng hoặc cập nhật giao diện sau khi đăng nhập thành công
+          // Ví dụ: window.location.href = '/home.html';
       } else {
-        authenticateUser(users, username, password);
+          // Đăng nhập thất bại
+          document.getElementById('message').textContent = 'Tên đăng nhập hoặc mật khẩu không chính xác!';
+          document.getElementById('message').style.color = 'red';
       }
-    });
+  } catch (error) {
+      console.error('Lỗi:', error);
+      document.getElementById('message').textContent = 'Lỗi server!';
+      document.getElementById('message').style.color = 'red';
+  }
 });
 
-function authenticateUser(users, username, password) {
-  const user = users.find(
-    (user) => user.username === username && user.password === password
-  );
 
-  if (user) {
-    alert(`Chào mừng, ${user.name}!`);
-    window.location.href = "../../index.html";
-  } else {
-    alert("Sai mật khẩu hoặc tên đăng nhập!");
-  }
-}
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   document.getElementById('login-form').addEventListener('submit', async function(e) {
+//       e.preventDefault();
+
+//       // Lấy giá trị từ form
+//       const loginData = {
+//           username: document.getElementById('username').value,
+//           password: document.getElementById('password').value
+//       };
+
+//       try {
+//           const response = await fetch('http://localhost:3000/login', {
+//               method: 'POST',
+//               headers: {
+//                   'Content-Type': 'application/json',
+//               },
+//               body: JSON.stringify(loginData)
+//           });
+
+//           const data = await response.json();
+//           const messageDiv = document.getElementById('message');
+//           messageDiv.style.padding = '10px';
+//           messageDiv.style.marginTop = '10px';
+//           messageDiv.style.borderRadius = '4px';
+
+//           if (response.ok) {
+//               messageDiv.style.backgroundColor = '#d4edda';
+//               messageDiv.style.color = '#155724';
+//               messageDiv.textContent = 'Đăng nhập thành công!';
+//           } else {
+//               messageDiv.style.backgroundColor = '#f8d7da';
+//               messageDiv.style.color = '#721c24';
+//               messageDiv.textContent = data.message || 'Có lỗi xảy ra!';
+//           }
+//       } catch (error) {
+//           const messageDiv = document.getElementById('message');
+//           messageDiv.style.backgroundColor = '#f8d7da';
+//           messageDiv.style.color = '#721c24';
+//           messageDiv.style.padding = '10px';
+//           messageDiv.style.marginTop = '10px';
+//           messageDiv.style.borderRadius = '4px';
+//           messageDiv.textContent = 'Không thể kết nối đến server!';
+//       }
+//   });
+// });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const darkModeToggle = document.getElementById("darkModeToggle");
@@ -107,16 +121,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-async function loadNavbar() {
-  const response = await fetch("./components/Login/login.html");
-  const LoginHtml = await response.text();
-  document.getElementById("login-page").innerHTML = LoginHtml;
+// async function loadNavbar() {
+//   const response = await fetch("./components/Login/login.html");
+//   const LoginHtml = await response.text();
+//   document.getElementById("login-page").innerHTML = LoginHtml;
 
-  const LoginCss = document.createElement("link");
-  LoginCss.rel = "stylesheet";
-  LoginCss.href = "./components/Login/login.css";
-  document.head.appendChild(LoginCss);
-}
+//   const LoginCss = document.createElement("link");
+//   LoginCss.rel = "stylesheet";
+//   LoginCss.href = "./components/Login/login.css";
+//   document.head.appendChild(LoginCss);
+// }
 
 
 
@@ -183,4 +197,4 @@ function updateUI(language) {
 
 updateUI("en"); 
 
-loadNavbar();
+//loadNavbar();

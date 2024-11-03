@@ -6,11 +6,8 @@
   <title>Register</title>
   <link rel="stylesheet" href="Register.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
 </head>
 <body>
-
-
   <button id="darkModeToggle" class="dark-mode-btn"></button>
 
   <div class="language-switcher">
@@ -19,7 +16,6 @@
       <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png" data-i18n="language.vn">VN</option>
     </select>
   </div>
-
 
   <div class="container">
     <!-- Left Section -->
@@ -43,19 +39,19 @@
       <p data-i18n="signupSubtitle">Empower your experience, sign up for a free account today</p>
       <form id="form">
         <label for="username" data-i18n="usernameLabel">User Name*</label>
-        <input type="username" id="username" placeholder="Enter User Name"  data-i18n="usernamePlaceholder"  required>
+        <input type="username" id="username" placeholder="Enter User Name" data-i18n="usernamePlaceholder" required>
 
-        <label for="username" data-i18n="phoneLabel">Phone*</label>
-        <input type="username" id="phone" placeholder="0123 456 789"  data-i18n="phonePlaceholder"  required>
+        <label for="phone" data-i18n="phoneLabel">Phone*</label>
+        <input type="username" id="phone" placeholder="0123 456 789" data-i18n="phonePlaceholder" required>
 
-        <label for="username" data-i18n="addressLabel">Address*</label>
-        <input type="username" id="address" placeholder="Enter Address"  data-i18n="addressPlaceholder"  required>
+        <label for="address" data-i18n="addressLabel">Address*</label>
+        <input type="username" id="address" placeholder="Enter Address" data-i18n="addressPlaceholder" required>
 
-        <label for="username" data-i18n="emailLabel">Email Address*</label>
-        <input type="username" id="email" placeholder="ex.email@domain.com"  data-i18n="emailPlaceholder"  required>
+        <label for="email" data-i18n="emailLabel">Email Address*</label>
+        <input type="username" id="email" placeholder="ex.email@domain.com" data-i18n="emailPlaceholder" required>
         
         <label for="password" data-i18n="passwordLabel">Password*</label>
-        <input type="password" id="password" placeholder="Enter password"  data-i18n="passwordPlaceholder"  required>
+        <input type="password" id="password" placeholder="Enter password" data-i18n="passwordPlaceholder" required>
         <div class="checkbox">
           <input type="checkbox" id="show-password">
           <label for="show-password" data-i18n="showPassword">Show Password</label>
@@ -63,13 +59,21 @@
         
         <button type="submit" data-i18n="getStartedButton">Get started</button>
         <p>
-          <span  data-i18n="haveAccountText">Already haven't an account?</span>  <a class="link" href="/components/Login/login.html" data-i18n="loginLink">Register</a>
-         </p> 
+          <span data-i18n="haveAccountText">Already have an account?</span>
+          <a class="link" href="/components/Login/login.html" data-i18n="loginLink">Log in</a>
+        </p> 
         <div class="or" data-i18n="orText">Or better yet...</div>
         
-        <button class="social-login google" data-i18n="googleLogin"><i class="fa-brands fa-google"></i>Continue with Google</button>
-        <button class="social-login apple" data-i18n="appleLogin"><i class="fa-brands fa-apple"></i>Continue with Apple</button>
+        <button type="button" class="social-login google" data-i18n="googleLogin">
+          <i class="fa-brands fa-google"></i>Continue with Google
+        </button>
+        <button type="button" class="social-login apple" data-i18n="appleLogin">
+          <i class="fa-brands fa-apple"></i>Continue with Apple
+        </button>
       </form>
+
+      <!-- Thêm phần tử message -->
+      <div id="message" class="message-box"></div>
     </div>
   </div>
   <script src="Register.js"></script>
