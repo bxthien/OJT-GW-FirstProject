@@ -36,7 +36,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 300px;
+  width: 25%;
   background-color: #fff;
   padding: 20px;
   display: flex;
@@ -142,7 +142,7 @@ header nav {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 40px;
+  top: 50px;
   right: 0;
   background-color: #fff;
   border: #333;
@@ -222,6 +222,7 @@ header nav {
   overflow: hidden;
   overflow-y: auto;
   padding: 20px 10px;
+  gap: 10px;
   /* background-color: red; */
 }
 
@@ -253,8 +254,10 @@ header nav {
   padding: 10px;
   display: flex;
   width: 100%;
-  border: 1px solid black;
+  overflow: hidden;
+  overflow-y: auto;
   border-radius: 10px;
+  background-color: #d3d3d3;
 }
 .chat-input {
   display: flex;
@@ -269,6 +272,7 @@ header nav {
   width: 90%;
   border-radius: 8px;
   height: 35px;
+  padding: 5px;
 }
 
 .chat-input button {
@@ -288,8 +292,6 @@ header nav {
   justify-content: space-between;
   align-items: center;
   background-color: #cad9f0;
-
-  /* background-color: ; */
 }
 
 .footer-sidebar {
@@ -338,9 +340,9 @@ header nav {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  border-radius: 4px; /* Rounded corners for the menu */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  transition: all 0.3s ease; /* Smooth transition */
+  border-radius: 4px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s ease; 
 }
 
 .selected-lang {
@@ -350,76 +352,43 @@ header nav {
   display: flex;
   align-items: center;
   background-color: white;
-  transition: background-color 0.3s; /* Smooth background transition */
+  transition: background-color 0.3s;
 }
 
 .selected-lang:hover {
-  background-color: #f0f0f0; /* Change background on hover */
+  background-color: #f0f0f0;
 }
 
 .selected-lang img {
-  width: 25px; /* Increased size for better visibility */
-  margin-right: 10px; /* Space between flag and text */
+  width: 25px;
+  margin-right: 10px;
 }
 
 #lang-options {
-  display: none; /* Initially hidden */
+  display: none;
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 150px; /* Fixed width for the dropdown */
+  width: 150px; 
   z-index: 1;
-  margin-top: 5px; /* Space between selected lang and options */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-#lang-options li {
-  padding: 10px 15px;
-}
-
-#lang-options li a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s; /* Smooth background transition */
-}
-
-#lang-options li a img {
-  width: 25px; /* Increased size for better visibility */
-  margin-right: 10px; /* Space between flag and text */
-}
-
-#lang-options li:hover {
-  background-color: #e0e0e0; /* Highlight on hover */
-}
-
-ul {
-  list-style-type: none; /* No bullet points */
-  padding: 0;
-  margin: 0; /* Remove default margins */
-}
-
-li {
-  margin: 0; /* Remove default margins */
-  font-size: 18px; /* Font size for better readability */
-  cursor: pointer; /* Change cursor to pointer */
+  margin-top: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 /* Additional styling for the text list */
 #text-list {
-  margin-top: 20px; /* Space between language menu and text list */
+  margin-top: 20px; 
   padding: 10px;
-  border: 1px solid #ccc; /* Border for text list */
-  border-radius: 4px; /* Rounded corners */
-  background-color: #fff; /* White background */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 /* Modal styles */
 .modal-content {
-  display: none; /* Hidden by default */
+  display: none; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -458,7 +427,7 @@ li {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end; 
   padding: 10px;
 }
 
@@ -481,33 +450,31 @@ li {
 }
 
 #languageSelect {
-  appearance: none; /* Loại bỏ kiểu mặc định */
+  appearance: none; 
   border: 1px solid #ccc;
   border-radius: 25px;
-  padding: 5px 10px 5px 30px; /* Thêm padding để tạo khoảng cách cho hình cờ */
+  padding: 5px 10px 5px 30px; 
   background-color: white;
   cursor: pointer;
-  background-size: 20px; /* Kích thước hình cờ */
+  background-size: 20px; 
   background-repeat: no-repeat;
-  background-position: 10px center; /* Vị trí của hình cờ */
+  background-position: 10px center; 
 }
 
 #languageSelect option {
-  padding: 10px; /* Padding cho các tùy chọn */
+  padding: 10px; 
 }
 
-.dark-mode-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #6a44ff;
-  color: #fff;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
+
+
+  
+
+
+
+
+
+
+
 .footer-user-setting {
   display: flex;
   flex-direction: column;
@@ -531,15 +498,16 @@ li {
   width: 24px;
   height: 24px;
   fill: #e8eaed;
-  /* Màu của biểu tượng */
   transition: transform 0.3s ease;
 }
 
 .close-sidebar:hover svg {
-  transform: scale(1.1); /* Hiệu ứng khi hover vào nút */
+  transform: scale(1.1); 
 }
 
 .chat_ui{
+  flex-grow: 1;
+  text-align: center;
   font-size: 42px;
   line-height: 58px;
   font-weight: 600;
@@ -585,6 +553,7 @@ li {
   animation: spin 0.8s linear infinite;
 }
 
+
 /* Spinner animation */
 @keyframes spin {
   0% {
@@ -596,6 +565,10 @@ li {
   }
 }
 @media (max-width: 768px) {
+.chat_ui{
+    font-size: 20px;
+}
+
   .close-sidebar {
     display: flex;
   }
@@ -616,15 +589,18 @@ li {
     /* height: 100%; */
     height: calc(100vh);
   }
+    .sidebar {
+      display: none;
+      /* Mặc định ẩn sidebar */
+    }
 
-  .sidebar {
+  .sidebar.active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
     width: 80%;
     height: 100%;
     margin-bottom: 20px;
@@ -703,8 +679,134 @@ li {
   }
 }
 
+/* -----------------DARKMODE-------------------- */
+.dark-mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6a44ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1000;
+  }
+  
+  .dark-mode-btn:hover {
+    background-color: #5b39d8;
+  }
+  
+  .dark-mode-btn svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+  }
+
+/* Dark Mode Styles */
+body.dark-mode .main-content-top {
+    background-color: #2e2e2e;
+    color: #e8eaed;
+  }
+
+  .dark-mode .background {
+    background-color: #2e2e2e;
+  }
+
+  .dark-mode .sidebar {
+    background-color: #575555;
+    color: white;
+  }
+
+  .dark-mode  .chat-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #575555;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark-mode  .chat-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .dark-mode .chat-box p {
+    background-color: #313030;
+    color: white;
+  }
+ 
+  
+  .dark-mode .menu li {
+    color: #e8eaed;
+  }
+  
+  
+  .dark-mode .pro-btn {
+    background-color: #6a44ff;
+  }
+  
+ 
+
+
+  
+
+  .dark-mode .chat-input input {
+    background-color: #444;
+    color: #e8eaed;
+    border: 2px solid #e0d6d6;
+  }
+
+  
+  .dark-mode .chat-input button {
+    background-color: #6a44ff;
+  }
+  
+  .dark-mode .dropdown {
+    background-color: #444;
+    color: #e8eaed;
+  }
+  
+  .dark-mode .modal-content {
+    background-color: #333;
+    color: #e8eaed;
+  }
+  
+  .dark-mode .footer-sidebar {
+    background-color: #444;
+  }
+  
+  .dark-mode .lang-menu {
+    background-color: #444;
+  }
+  
+  .dark-mode .button-submit {
+    background-color: #6a44ff;
+  }
+
+  .dark-mode #languageSelect {
+    background-color: #444;
+    color: wheat;
+  }
+  
+  /* Dark Mode Toggle Button */
+  .dark-mode-btn {
+    background-color: #444;
+  }
+
+
+
+
 @media (min-width: 768px) and (max-width: 1024px) {
+ 
+
   .sidebar {
+    display: flex;
     width: 35%;
   }
 
@@ -720,6 +822,7 @@ li {
     background-color: #5b39d8;
     transform: scale(1.05);
   }
+
 
   .dark-mode-btn svg {
     fill: white;

@@ -6,6 +6,7 @@
     "@google/generative-ai": "^0.21.0",
     "markdown-it": "^14.1.0",
     "node": "^23.1.0",
+    "openai": "^4.70.2",
     "pretty-html": "^0.0.1"
   },
   "devDependencies": {

@@ -5,45 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Project</title>
     <link rel="stylesheet" href="chatbot.css" />
-    <script type="module" src="./chatbot.js"></script>
 
   </head>
   <body>
     <nav class="main-content-top">
-      <div class="language-switcher">
-        <select id="languageSelect">
-          <option
-            value="en"
-            data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png"
-          >
-            EN
-          </option>
-          <option
-            value="vie"
-            data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png"
-          >
-            VN
-          </option>
-        </select>
-      </div>
-      <h1 class="chat_ui" data-i18n="chat_ui">Chat UI</h1>
-      <div class="user-settings">
-        <span class="user-icon" id="dropdownButton">
-          <img
-            class="avatar"
-            src="https://www.w3schools.com/howto/img_avatar.png"
-            alt="avatar"
-          />
-        </span>
-        <div class="dropdown" id="dropdownContent">
-          <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
-          <span class="dropdown-selected" data-i18n="profile_setting"
-            >Profile Setting</span
-          >
-          <span class="dropdown-logout" data-i18n="logout">Log out</span>
-        </div>
-      </div>
-    </nav>
+  <h1 class="chat_ui" data-i18n="chat_ui">Chat UI</h1>
+  <button id="darkModeToggle" class="dark-mode-btn"></button>
+  <div class="language-switcher">
+    <select id="languageSelect">
+      <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png">EN</option>
+      <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png">VN</option>
+    </select>
+  </div>
+  <div class="user-settings">
+    <span class="user-icon" id="dropdownButton">
+      <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+    </span>
+    <div class="dropdown" id="dropdownContent">
+      <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
+      <span class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
+      <span class="dropdown-logout" data-i18n="logout">Log out</span>
+    </div>
+  </div>
+</nav>
 
     <div class="background">
       <div class="container-icon">
@@ -79,34 +63,41 @@
 
           <h2 class="vipper-text">Viper</h2>
 
-         
+        
 
           <ul class="menu">
-            <li>Chat UI</li>
-            
+            <li data-i18n="chat_ui2">Chat UI</li>
+            <li>
+              <label for="chatbot-select">Chọn Chatbot:</label>
+                <select id="chatbot-select">
+                  <option value="gemini">Gemini</option>
+                  <option value="gpt">GPT</option>
+               </select>
+          </li>
+          </ul>
         </aside>
+
         <!-- Main Content -->
         <main class="main-content">
           <div class="modal-content" id="chatbotProfile">
-            <span class="close-button">&times;</span>
+            <span class="close-button" data-i18n="close">&times;</span>
             <div class="profile-header">
               <img
                 src="image/chatbot.jpg"
-                alt="Chatbot Avatar"
+                alt="Avatar Chatbot"
                 class="avatar"
               />
-              <h2>Chatbot Name</h2>
-              <p>Support Bot</p>
+              <h2 data-i18n="chatbot_name">Chatbot Name</h2>
+              <p data-i18n="support_bot">Support Bot</p>
             </div>
             <div class="profile-body">
               <p>
-                <strong>Description:</strong> I can assist with queries
-                regarding our services and products.
+                <strong data-i18n="description">Description:</strong> <span data-i18n="chatbot_description">I can assist with queries regarding our services and products.</span>
               </p>
-              <p><strong>Contact:</strong> support@company.com</p>
+              <p><strong data-i18n="contact">Contact:</strong> support@company.com</p>
             </div>
             <div class="profile-footer">
-              <button id="contactSupport">Contact Support</button>
+              <button id="contactSupport" data-i18n="contact_support">>Contact Support</button>
             </div>
           </div>
 
@@ -115,11 +106,11 @@
             <span class="close-button">&times;</span>
             <div class="profile-header">
               <img src="image/user.jpg" alt="User Avatar" class="avatar" />
-              <h2>User Name</h2>
-              <p>Regular User</p>
+              <h2 data-i18n="user_name">User Name</h2>
+              <p data-i18n="regular_user">Regular User</p>
             </div>
             <div class="profile-body">
-              <p>
+              <p data-i18n="description">
                 <strong>Description:</strong> This is the profile of a regular
                 user. Customize as needed.
               </p>
@@ -152,8 +143,8 @@
           </section>
         </main>
       </div>
-    </div>
+    </div>`
 
-    <script src="./chatbot.js"></script>
   </body>
 </html>
+
