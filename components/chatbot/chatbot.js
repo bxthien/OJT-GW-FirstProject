@@ -18,7 +18,6 @@ function initializeModel(modelName) {
     model = model2; 
   }
 }
-
 async function getResponse(prompt) {
   const button = document.querySelector(".button-submit");
 
