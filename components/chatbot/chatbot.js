@@ -1,30 +1,33 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import  openAI  from "openai"; 
 
-function formatHTMLResponse(htmlString) {
-  return pretty(htmlString, { ocd: true });
-}
-
-// Khởi tạo AI model
 const genAI = new GoogleGenerativeAI(`${import.meta.env.VITE_API_KEY}`);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
+const gptAI = new openAI({ apiKey: `${import.meta.env.VITE_API_KEY2}`, dangerouslyAllowBrowser: true  });
+let model;
+const model1 = genAI.getGenerativeModel({ model: "gemini-pro" }); 
+const model2 = gptAI.getGenerativeModel({ model: "gpt-3.5-turbo" });
 let history = [];
 let isSending = false;
+function initializeModel(modelName) {
+  if (modelName === "gemini") {
+    genAI;
+    model = model1;
+  } else if (modelName === "gpt") {
+    gptAI;
+    model = model2; 
+  }
+}
 
 async function getResponse(prompt) {
   const button = document.querySelector(".button-submit");
 
-  // Kích hoạt loading
   button.classList.add("loading");
 
-  // Kích hoạt loading và xóa văn bản của nút
-  button.classList.add("loading");
   try {
     const chat = await model.startChat({});
     const result = await chat.sendMessage(prompt);
     const response = await result.response;
 
-    // Kiểm tra và lấy mã HTML từ response JSON
     const content =
       response.candidates?.[0]?.content?.parts?.[0]?.text ??
       "Lỗi phản hồi từ bot.";
@@ -33,39 +36,8 @@ async function getResponse(prompt) {
     console.error("Error getting response from AI:", error);
     return "Xin lỗi, tôi không thể trả lời ngay bây giờ.";
   } finally {
-    // Tắt loading khi kết thúc
     button.classList.remove("loading");
   }
-}
-
-function createMessageElement(text, sender) {
-  const messageContainer = document.createElement("div");
-  messageContainer.classList.add(sender.toLowerCase());
-
-  const avatar = document.createElement("img");
-  avatar.className = "avatar";
-  avatar.src =
-    sender.toLowerCase() === "bot"
-      ? "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg" // Avatar bot
-      : "https://www.w3schools.com/howto/img_avatar.png"; // Avatar người dùng
-  avatar.alt = "avatar";
-
-  const messageElement = document.createElement("p");
-  messageElement.classList.add("typing-effect");
-  messageContainer.appendChild(avatar);
-
-  let index = 0;
-  function typeEffect() {
-    if (index < text.length) {
-      messageElement.textContent += text[index];
-      index++;
-      setTimeout(typeEffect, 40); // Điều chỉnh tốc độ gõ
-    }
-  }
-  typeEffect();
-  messageContainer.appendChild(messageElement);
-
-  return messageContainer;
 }
 
 async function handleSubmit(event) {
@@ -87,10 +59,13 @@ async function handleSubmit(event) {
   chatArea.appendChild(userMessageElement);
   userMessageInput.value = "";
 
-  // Nhận phản hồi từ AI và kiểm tra nếu là HTML
+  const selectedChatbot = document.getElementById("chatbot-select").value;
+  const apiKey = selectedChatbot === "gemini" ? genAI : gptAI;
+
+  initializeModel(apiKey, selectedChatbot);
+
   const aiResponse = await getResponse(prompt);
 
-  // Hiển thị tin nhắn của bot
   const aiMessageElement = createMessageElement(aiResponse, "Bot");
   chatArea.appendChild(aiMessageElement);
 
@@ -102,54 +77,7 @@ async function handleSubmit(event) {
   isSending = false;
 }
 
-document
-  .querySelector(".chat-input button")
-  .addEventListener("click", handleSubmit);
-document
-  .querySelector(".chat-input input")
-  .addEventListener("keyup", (event) => {
-    if (event.key === "Enter") handleSubmit(event);
-  });
 
-async function loadChatbot() {
-  // Tải HTML
-  const response = await fetch("./components/chatbot/chatbot.html");
-  const chatbotHtml = await response.text();
-  document.getElementById("chatbot").innerHTML = chatbotHtml;
-
-  // Tạo và thêm CSS
-  const chatbotCss = document.createElement("link");
-  footerCss.rel = "stylesheet";
-  footerCss.href = "./components/chatbot/chatbot.css";
-  document.head.appendChild(chatbotCss);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdownButton = document.getElementById("dropdownButton");
-  const dropdownContent = document.getElementById("dropdownContent");
-
-  dropdownButton.addEventListener("click", () => {
-    dropdownContent.style.opacity =
-      dropdownContent.style.opacity === "0" ? "1" : "0";
-  });
-
-  document.addEventListener("click", (event) => {
-    if (
-      !dropdownButton.contains(event.target) &&
-      !dropdownContent.contains(event.target)
-    ) {
-      dropdownContent.style.opacity = "0";
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const containerIcon = document.querySelector(".container-icon");
-  const sidebar = document.querySelector(".sidebar");
-
-  containerIcon.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-  });
-});
 
 // Event listener to handle dropdown and language switcher interactions
 document.addEventListener("DOMContentLoaded", function () {
