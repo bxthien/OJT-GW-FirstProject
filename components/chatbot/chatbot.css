@@ -28,6 +28,7 @@
   transition: background-color 0.3s;
 }
 
+
 .shortcut-card:hover {
   background-color: #444;
   color: gray;
@@ -51,6 +52,12 @@
   border-radius: 6px;
   padding: 8px;
 }
+
+.dark-mode .shortcut-content {
+  background-color: #2e2e2e;
+  color: white;
+}
+
 
 .shortcut-title {
   font-weight: bold;
