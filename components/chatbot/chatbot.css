@@ -270,11 +270,79 @@ header nav {
   padding: 10px 15px;
   border-bottom: 1px solid #333;
 }
+/* Styling for the custom select container */
+.custom-select {
+  position: relative;
+  width: 50%;
+  cursor: pointer;
+}
 
+/* Styling for the selected option */
+.selected-option {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: #f3f4f6;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.selected-option .option-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Styling for the dropdown list */
+.options-list {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+  z-index: 10;
+}
+
+.options-list li {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.options-list li:hover {
+  background-color: #e6e6e6;
+}
+
+.options-list .option-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
 .dropdown .dropdown-selected {
   display: flex;
   padding: 10px 15px;
   width: max-content;
+}
+.navigate-button {
+  padding: 8px 16px;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navigate-button:hover {
+  background-color: #919396; 
 }
 
 .dropdown-logout {
@@ -896,6 +964,10 @@ body.dark-mode .main-content-top {
   .dark-mode .footer-sidebar {
     background-color: #444;
   }
+  .dark-mode .navigate-button{
+    background-color: #2e2e2e;
+    color:#fff;
+  }
   
   .dark-mode .lang-menu {
     background-color: #444;
@@ -915,7 +987,29 @@ body.dark-mode .main-content-top {
     background-color: #444;
   }
 
-
+  .dark-mode .custom-select {
+    color: #fff; /* Light text color */
+    border-color: #555;
+  }
+  
+  .dark-mode .selected-option {
+    background-color: #444;
+    border: 1px solid #666;
+  }
+  
+  .dark-mode .options-list {
+    background-color: #333;
+    border-color: #555;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dark-mode .options-list li {
+    color: #fff;
+  }
+  
+  .dark-mode .options-list li:hover {
+    background-color: #555;
+  }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {

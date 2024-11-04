@@ -24,7 +24,6 @@ async function getResponse(prompt) {
     const result = await chat.sendMessage(prompt);
     const response = await result.response;
 
-    // Kiểm tra và lấy mã HTML từ response JSON
     const content =
       response.candidates?.[0]?.content?.parts?.[0]?.text ??
       "Lỗi phản hồi từ bot.";
@@ -315,10 +314,8 @@ const translations = {
     address: "Address:",
     edit_profile: "Edit Profile",
     description: "Description:",
-    shortcut_weather_title: '"Weather In DaNang"',
-    shortcut_weather_description: "The weather in DaNang today.",
-    shortcut_news_title: '"News Technology"',
-    shortcut_news_description: "News technology today.",
+    profile_team: "Profile Team:",
+    here: "Here",
   },
   vie: {
     chat_ui: "Giao diện Trò chuyện",
@@ -342,10 +339,8 @@ const translations = {
     address: "Địa chỉ:",
     edit_profile: "Chỉnh Sửa Hồ Sơ",
     description: "Mô tả:",
-    hortcut_weather_title: '"Thời tiết ở Đà Nẵng"',
-    shortcut_weather_description: "Thời tiết ở Đà Nẵng hôm nay.",
-    shortcut_news_title: '"Báo Công Nghệ"',
-    shortcut_news_description: "Báo công nghệ hôm nay.",
+    profile_team: "Nhóm phát triển:",
+    here: "Xem"
   },
 };
 
@@ -409,4 +404,32 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
     }
   });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const selectContainer = document.getElementById('chatbot-select');
+  const selectedOption = selectContainer.querySelector('.selected-option');
+  const optionsList = selectContainer.querySelector('.options-list');
+  
+  selectedOption.addEventListener('click', function () {
+    optionsList.style.display = optionsList.style.display === 'block' ? 'none' : 'block';
+  });
+
+  optionsList.addEventListener('click', function (event) {
+    if (event.target.tagName === 'LI') {
+      const selectedText = event.target.innerText;
+      const selectedIcon = event.target.querySelector('img').src;
+      selectedOption.querySelector('span').innerText = selectedText;
+      selectedOption.querySelector('img').src = selectedIcon;
+      optionsList.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!selectContainer.contains(event.target)) {
+      optionsList.style.display = 'none';
+    }
+  });
+});
+document.getElementById('go-to-profile').addEventListener('click', function() {
+  window.location.href = '../profile/profile.html';
 });
