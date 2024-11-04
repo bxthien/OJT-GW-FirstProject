@@ -4,6 +4,70 @@
   box-sizing: border-box;
 }
 
+/* css card UI */
+.shortcut-container {
+  position: fixed;
+  bottom: 70px; 
+  left: 50%;
+  transform: translateX(-20%);
+  display: grid;
+  z-index: 1000;
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px; 
+  padding: 50px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.shortcut-card {
+  background-color: #ffffff;
+  gap: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.shortcut-card:hover {
+  background-color: #444;
+  color: white;
+}
+
+.shortcut-icon {
+  width: 30px; 
+  height: 30px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.shortcut-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 2;
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+.shortcut-title {
+  font-weight: bold;
+  font-size: 12px; 
+  margin: 0 0 8px;
+}
+
+.shortcut-description {
+  font-size: 10px; 
+  color: #666;
+  display: flex;
+  align-items: center; 
+  margin: 0;
+}
+
+
 .background {
   background-color: #cad9f0;
   height: calc(100vh - 60px);
@@ -710,6 +774,11 @@ body.dark-mode .main-content-top {
     color: #e8eaed;
   }
 
+.dark-mode .shortcut-card {
+  color: white;
+  background-color: #2e2e2e;
+}
+
   .dark-mode .background {
     background-color: #2e2e2e;
   }
@@ -848,47 +917,4 @@ body.dark-mode .main-content-top {
     width: 25%;
     height: 35px;
   }
-}
-
-
-.modal-content {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  max-width: 500px;
-  width: 90%;
-}
-
-.close-button {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-/*--thanglam*/
-
-.profile-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.profile-body {
-  margin-bottom: 20px;
-}
-
-.profile-body p {
-  margin: 10px 0;
-}
-
-.profile-footer {
-  text-align: center;
 }

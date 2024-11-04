@@ -68,6 +68,44 @@ function createMessageElement(text, sender) {
   return messageContainer;
 }
 
+// click shortcard 
+async function handleShortcutClick(prompt) {
+  const chatArea = document.querySelector(".chat-bot");
+  // const shortcutContainer = document.querySelector(".chat-bot .shortcut-card");
+
+  const userMessageElement = createMessageElement(prompt, "User");
+  chatArea.appendChild(userMessageElement);
+  const aiResponse = await getResponse(prompt);
+
+  //chatbot response in the chat
+  const aiMessageElement = createMessageElement(aiResponse, "Bot");
+  chatArea.appendChild(aiMessageElement);
+
+  // remove shortcut card
+  document.querySelectorAll(".shortcut-card").forEach(card => card.remove());
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// add shortcut cards
+document.getElementById("weatherShortcut").addEventListener("click", () => {
+  handleShortcutClick("Weather in DaNang");
+});
+
+document.getElementById("newsShortcut").addEventListener("click", () => {
+  handleShortcutClick("News Technology");
+});
+
+document.querySelector(".chat-input").addEventListener("keydown", (event) => 
+  { if (event.key === "Enter") { 
+  const prompt = event.target.value; 
+  if (prompt.trim()) 
+  { handleShortcutClick(prompt); 
+  event.target.value = ""; 
+  } 
+  } 
+  });
+
+
 async function handleSubmit(event) {
   event.preventDefault();
   if (isSending) return;
@@ -277,6 +315,10 @@ const translations = {
     address: "Address:",
     edit_profile: "Edit Profile",
     description: "Description:",
+    shortcut_weather_title: "\"Weather In DaNang\"",
+    shortcut_weather_description: "The weather in DaNang today.",
+    shortcut_news_title: "\"News Technology\"",
+    shortcut_news_description: "News technology today."
   },
   vie: {
     chat_ui: "Giao diện Trò chuyện",
@@ -299,6 +341,10 @@ const translations = {
     address: "Địa chỉ:",
     edit_profile: "Chỉnh Sửa Hồ Sơ",
     description: "Mô tả:",
+    hortcut_weather_title: "\"Thời tiết ở Đà Nẵng\"",
+    shortcut_weather_description: "Thời tiết ở Đà Nẵng hôm nay.",
+    shortcut_news_title: "\"Báo Công Nghệ\"",
+    shortcut_news_description: "Báo công nghệ hôm nay."
   },
 };
 
@@ -360,57 +406,3 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 });
-
-
-
-  // Xử lý sự kiện click vào nút cài đặt hồ sơ
-  const profileSetting = document.querySelector('.dropdown-selected');
-  const userProfileModal = document.getElementById('userProfile');
-  const closeButtons = document.querySelectorAll('.close-button');
-  
-  profileSetting.addEventListener('click', async () => {
-    try {
-      const username = sessionStorage.getItem('username');
-      if (!username) {
-        alert('Vui lòng đăng nhập!');
-        return;
-      }
-
-      const response = await fetch(`http://localhost:3000/user/${username}`);
-      if (!response.ok) {
-        throw new Error('Không thể lấy thông tin người dùng');
-      }
-
-      const userData = await response.json();
-      
-      // Cập nhật modal với dữ liệu người dùng
-      userProfileModal.querySelector('h2').textContent = userData.username;
-      const profileBody = userProfileModal.querySelector('.profile-body');
-      profileBody.innerHTML = `
-        <p><strong>Mô tả:</strong> Thông tin người dùng</p>
-        <p><strong>Số điện thoại:</strong> ${userData.phone}</p>
-        <p><strong>Email:</strong> ${userData.email}</p>
-        <p><strong>Địa chỉ:</strong> ${userData.address}</p>
-      `;
-      
-      // Hiển thị modal
-      userProfileModal.style.display = 'block';
-    } catch (error) {
-      console.error('Lỗi:', error);
-      alert('Không thể lấy thông tin người dùng');
-    }
-  });
-
-  // Xử lý nút đóng
-  closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      userProfileModal.style.display = 'none';
-    });
-  });
-
-  // Đóng modal khi click bên ngoài
-  window.addEventListener('click', (event) => {
-    if (event.target === userProfileModal) {
-      userProfileModal.style.display = 'none';
-    }
-  });
