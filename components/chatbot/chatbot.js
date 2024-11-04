@@ -430,6 +430,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-document.getElementById('go-to-profile').addEventListener('click', function() {
-  window.location.href = '../profile/profile.html';
+
+
+
+// Lấy username từ session storage
+const username = sessionStorage.getItem('username');
+
+// Lắng nghe sự kiện 'click' trên nút "Profile Setting"
+document.getElementById('go-to-profile').addEventListener('click', () => {
+  // Gửi request đến server để lấy thông tin người dùng
+  fetch(`http://localhost:3000/user/${username}`)
+    .then(response => response.json())
+    .then(user => {
+      // Hiển thị thông tin người dùng trong modal
+      displayUserProfile(user);
+    })
+    .catch(error => {
+      console.error('Lỗi:', error);
+      // Xử lý lỗi
+    });
 });
+
+// Hàm hiển thị thông tin người dùng trong modal
+function displayUserProfile(user) {
+  const userProfileModal = document.getElementById('userProfile');
+  userProfileModal.querySelector('.avatar').src = user.avatar;
+  userProfileModal.querySelector('.user-name').textContent = user.name;
+  userProfileModal.querySelector('.user-phone').textContent = user.phone;
+  userProfileModal.querySelector('.user-email').textContent = user.email;
+  userProfileModal.querySelector('.user-address').textContent = user.address;
+  userProfileModal.style.display = 'block'; // Hiển thị modal
+}
+
+// Hàm để đóng modal
+function closeModal() {
+  document.getElementById('userProfile').style.display = 'none';
+}
+
+
+
