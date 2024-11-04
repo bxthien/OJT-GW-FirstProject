@@ -13,30 +13,95 @@ let isSending = false;
 
 async function getResponse(prompt) {
   const button = document.querySelector(".button-submit");
-
-  // Kích hoạt loading
   button.classList.add("loading");
 
-  // Kích hoạt loading và xóa văn bản của nút
-  button.classList.add("loading");
   try {
+    // Kiểm tra thời tiết của Đà Nẵng
+    if (prompt.toLowerCase().includes("weather")) {
+      return await getWeatherResponse("Danang");
+    }
+    // Kiểm tra tin tức
+    else if (prompt.toLowerCase().includes("news")) {
+      return await getNewsResponse("technology");
+    }
+
     const chat = await model.startChat({});
     const result = await chat.sendMessage(prompt);
     const response = await result.response;
 
-    // Kiểm tra và lấy mã HTML từ response JSON
     const content =
       response.candidates?.[0]?.content?.parts?.[0]?.text ??
       "Lỗi phản hồi từ bot.";
     return content;
+
   } catch (error) {
     console.error("Error getting response from AI:", error);
-    return "Xin lỗi, tôi không thể trả lời ngay bây giờ.";
+    return "Sorry, Error getting response from AI.";
   } finally {
-    // Tắt loading khi kết thúc
     button.classList.remove("loading");
   }
 }
+
+async function getWeatherResponse(location) {
+  const openWeatherApiKey = 'a790b385af7264f8ca75e85b0a8de3ed';
+  
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${openWeatherApiKey}&units=metric`);
+    const data = await response.json();
+
+    if (data.main) {
+      return `Current temperature at ${location} is ${data.main.temp.toFixed(2)}°C with ${data.weather[0].description}.`;
+    } else {
+      return `Sorry, I couldn't find weather at ${location}.`;
+    }
+  } catch (error) {
+    console.error(`Error retrieving weather for ${location}:`, error);
+    return `There was an error getting weather information for ${location}.`;
+  }
+}
+
+async function getNewsResponse(topic = "technology") {
+  const newsApiKey = '4256e4e57a4346aba1a2d4eea0140656';
+  try {
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?category=${topic}&apiKey=${newsApiKey}`);
+    const data = await response.json();
+    if (data.articles && data.articles.length > 0) {
+      return data.articles.slice(0, 3).map(article => `- ${article.title}: ${article.description}`).join("\n");
+    } else {
+      return "Sorry, I couldn't find any new news.";
+    }
+  } catch (error) {
+    console.error("Error getting news data:", error);
+    return "Error getting news data.";
+  }
+}
+
+// click shortcard 
+async function handleShortcutClick(prompt) {
+  const chatArea = document.querySelector(".chat-bot");
+  // const shortcutContainer = document.querySelector(".chat-bot .shortcut-card");
+
+  const userMessageElement = createMessageElement(prompt, "User");
+  chatArea.appendChild(userMessageElement);
+  const aiResponse = await getResponse(prompt);
+
+  //chatbot response in the chat
+  const aiMessageElement = createMessageElement(aiResponse, "Bot");
+  chatArea.appendChild(aiMessageElement);
+
+  // remove shortcut card
+  document.querySelectorAll(".shortcut-card").forEach(card => card.remove());
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// add shortcut cards
+document.getElementById("weatherShortcut").addEventListener("click", () => {
+  handleShortcutClick("Weather in DaNang");
+});
+
+document.getElementById("newsShortcut").addEventListener("click", () => {
+  handleShortcutClick("News Technology");
+});
 
 function createMessageElement(text, sender) {
   const messageContainer = document.createElement("div");
