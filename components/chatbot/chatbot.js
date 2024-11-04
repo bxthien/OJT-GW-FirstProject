@@ -24,7 +24,6 @@ async function getResponse(prompt) {
     const result = await chat.sendMessage(prompt);
     const response = await result.response;
 
-    // Kiểm tra và lấy mã HTML từ response JSON
     const content =
       response.candidates?.[0]?.content?.parts?.[0]?.text ??
       "Lỗi phản hồi từ bot.";
