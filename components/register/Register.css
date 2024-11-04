@@ -140,12 +140,7 @@
     color: #666;
   }
   
-  .checkbox{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 15px;
-  }
+ 
   .checkbox > input{
     width: 18px;
     height: 18px;
