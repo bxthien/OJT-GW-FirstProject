@@ -1,35 +1,46 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import  openAI  from "openai"; 
+import OpenAI from 'openai'; 
 
+function formatHTMLResponse(htmlString) {
+  return pretty(htmlString, { ocd: true });
+}
+
+// Khởi tạo AI 
 const genAI = new GoogleGenerativeAI(`${import.meta.env.VITE_API_KEY}`);
-const gptAI = new openAI({ apiKey: `${import.meta.env.VITE_API_KEY2}`, dangerouslyAllowBrowser: true  });
-let model;
-const model1 = genAI.getGenerativeModel({ model: "gemini-pro" }); 
-const model2 = gptAI.getGenerativeModel({ model: "gpt-3.5-turbo" });
+const geminiModel = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+
+const openAI = new OpenAI({
+  apiKey: `${import.meta.env.VITE_API_KEY2}`, dangerouslyAllowBrowser: true});
+
+let currentModel = 'gemini'; 
 let history = [];
 let isSending = false;
 
-function initializeModel(modelName) {
-  if (modelName === "gemini") {
-    genAI;
-    model = model1;
-  } else if (modelName === "gpt") {
-    gptAI;
-    model = model2; 
-  }
-}
 async function getResponse(prompt) {
   const button = document.querySelector(".button-submit");
 
+  // Kích hoạt loading
   button.classList.add("loading");
 
   try {
-    const chat = await model.startChat({});
-    const result = await chat.sendMessage(prompt);
-    const response = await result.response;
+    let response;
+
+    if (currentModel === 'gemini') {
+      const chat = await geminiModel.startChat({});
+      const result = await chat.sendMessage(prompt);
+      response = await result.response;
+    } else if (currentModel === 'openai') {
+      const result = await openAI.chat.completions.create({
+        model: 'gpt-3.5-turbo', 
+        messages: [{ role: "user", content: prompt }]
+      });
+      response = result.choices[0].message.content;
+    }
 
     const content =
-      response.candidates?.[0]?.content?.parts?.[0]?.text ??
+      response.candidates?.[0]?.content?.parts?.[0]?.text ||
+      response ||
       "Lỗi phản hồi từ bot.";
     return content;
   } catch (error) {
@@ -38,6 +49,45 @@ async function getResponse(prompt) {
   } finally {
     button.classList.remove("loading");
   }
+}
+
+function switchModel(model) {
+  if (model === 'openai' || model === 'gemini') {
+    currentModel = model;
+    console.log(`Switched to model: ${model}`);
+  } else {
+    console.error("Invalid model selected. Please choose 'openai' or 'gemini'.");
+  }
+}
+
+function createMessageElement(text, sender) {
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add(sender.toLowerCase());
+
+  const avatar = document.createElement("img");
+  avatar.className = "avatar";
+  avatar.src =
+    sender.toLowerCase() === "bot"
+      ? "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg" // Avatar bot
+      : "https://www.w3schools.com/howto/img_avatar.png"; // Avatar người dùng
+  avatar.alt = "avatar";
+
+  const messageElement = document.createElement("p");
+  messageElement.classList.add("typing-effect");
+  messageContainer.appendChild(avatar);
+
+  let index = 0;
+  function typeEffect() {
+    if (index < text.length) {
+      messageElement.textContent += text[index];
+      index++;
+      setTimeout(typeEffect, 40); // Điều chỉnh tốc độ gõ
+    }
+  }
+  typeEffect();
+  messageContainer.appendChild(messageElement);
+
+  return messageContainer;
 }
 
 async function handleSubmit(event) {
@@ -59,11 +109,7 @@ async function handleSubmit(event) {
   chatArea.appendChild(userMessageElement);
   userMessageInput.value = "";
 
-  const selectedChatbot = document.getElementById("chatbot-select").value;
-  const apiKey = selectedChatbot === "gemini" ? genAI : gptAI;
-
-  initializeModel(apiKey, selectedChatbot);
-
+  // Nhận phản hồi từ AI và kiểm tra nếu là HTML
   const aiResponse = await getResponse(prompt);
 
   const aiMessageElement = createMessageElement(aiResponse, "Bot");
@@ -77,6 +123,14 @@ async function handleSubmit(event) {
   isSending = false;
 }
 
+document
+  .querySelector(".chat-input button")
+  .addEventListener("click", handleSubmit);
+document
+  .querySelector(".chat-input input")
+  .addEventListener("keyup", (event) => {
+    if (event.key === "Enter") handleSubmit(event);
+  });
 
 
 // Event listener to handle dropdown and language switcher interactions
