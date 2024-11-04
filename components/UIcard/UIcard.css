@@ -8,118 +8,55 @@ body {
   margin: 0;
 }
 
-.container {
-  max-width: 1200px;
-  padding: 20px;
-}
-
 .shortcut-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Căn giữa theo chiều ngang */
-  gap: 24px;
-  max-width: 800px;
-  margin: auto; /* Căn giữa toàn bộ container */
-}
-
-.card-shortcut-pair {
-  display: flex;
-  justify-content: center; /* Căn giữa các cặp card */
-  gap: 20px;
-  margin-bottom: 10px;
-}
-
-.card {
-  width: 10rem;
-  min-height: 130px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 15px;
-  padding: 10px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 14px;
-  gap: 10;
-}
-
-.card-icon {
-  font-size: 20px;
-  color: #fff;
-}
-
-.card-title {
-  padding-top: 10px;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.card-text {
-  font-size: 13px;
-  color: #ccc;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px; 
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
 }
 
 .shortcut-card {
-  display: flex;
-  flex-direction: column;
   background-color: #ffffff;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease-in-out;
+  gap: 2px;
+  display: flex;
+  align-items: center;
+  padding: 4px; 
+  border-radius: 8px; 
   cursor: pointer;
-  width: 15rem;
+  transition: background-color 0.3s;
 }
 
 .shortcut-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background-color: #444;
+  color: white;
 }
 
 .shortcut-icon {
-  width: 35px;
-  height: 35px;
+  width: 30px; 
+  height: 30px;
+  margin-right: 8px;
   border-radius: 50%;
-  margin-bottom: 12px;
-  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .shortcut-content {
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
 }
 
 .shortcut-title {
-  font-weight: 600;
-  font-size: 14px;
-  color: #333;
+  font-weight: bold;
+  font-size: 12px; 
 }
 
 .shortcut-description {
-  font-size: 12px;
+  font-size: 10px; 
   color: #666;
-  margin-top: 8px;
-}
-
-.shortcut-arrow {
-  font-size: 18px;
-  color: #333;
-  margin-left: auto;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .product-item {
-        width: calc(45% - 40px);
-    }
-}
-
-@media (max-width: 480px) {
-    .product-item {
-        width: calc(100% - 40px);
-    }
+  display: flex;
+  align-items: center; 
 }

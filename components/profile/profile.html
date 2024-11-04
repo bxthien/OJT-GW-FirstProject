@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Profile Section</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+  <button id="darkModeToggle" class="dark-mode-btn"></button>
+
+  <div class="language-switcher">
+    <select id="languageSelect">
+      <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png" data-i18n="language.en">EN</option>
+      <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png" data-i18n="language.vn">VN</option>
+    </select>
+  </div>
+
+    <div class="team-section">
+        <h2 class="title" data-i18n="teamTitle">The Vipers Team Profile</h2>
+        <p class="description" data-i18n="teamDescription">Below are the profiles of the members of the Vipers Team.</p>
+      
+        <div class="profiles" id="profiles">
+          <!-- Profiles sẽ được thêm vào đây -->
+        </div>
+
+      </div>
+      
+  <script src="profile.js"></script>
+
+</body>
+</html>

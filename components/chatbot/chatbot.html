@@ -5,151 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Project</title>
     <link rel="stylesheet" href="chatbot.css" />
+    <script type="module" src="./chatbot.js"></script>
+
   </head>
   <body>
+    <nav class="main-content-top">
+  <h1 class="chat_ui" data-i18n="chat_ui">Chat UI</h1>
+  <button id="darkModeToggle" class="dark-mode-btn"></button>
+  <div class="language-switcher">
+    <select id="languageSelect">
+      <option value="en" data-flag="https://vectorflags.s3.amazonaws.com/flags/uk-circle-01.png">EN</option>
+      <option value="vie" data-flag="https://vectorflags.s3.amazonaws.com/flags/vn-circle-01.png">VN</option>
+    </select>
+  </div>
+  <div class="user-settings">
+    <span class="user-icon" id="dropdownButton">
+      <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
+    </span>
+    <div class="dropdown" id="dropdownContent">
+      <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
+      <span class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
+      <span class="dropdown-logout" data-i18n="logout">Log out</span>
+    </div>
+  </div>
+</nav>
+
     <div class="background">
+      <div class="container-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="currentColor"
+        >
+          <path
+            d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+          />
+        </svg>
+      </div>
+
       <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
-          <h2>Viper</h2>
-          <!-- Language Switcher Dropdown -->
-          <div class="lang-menu">
-            <div class="selected-lang" id="selected-lang">
-                <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />
-                English
-            </div>
-            <ul id="lang-options">
-                <li>
-                    <a href="#" class="en" data-value="en" data-flag="https://flagicons.lipis.dev/flags/4x3/gb.svg">
-                        <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="flag" />English</a> 
-                </li> 
-                <li>
-                    <a href="#" class="vie" data-value="vie" data-flag="https://flagicons.lipis.dev/flags/4x3/vn.svg">
-                        <img id="flag-icon" src="https://flagicons.lipis.dev/flags/4x3/vn.svg" alt="flag" />Vietnamese</a> 
-                </li>
-            </ul>
-        </div>
+          <button class="close-sidebar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#000000"
+            >
+              <path
+                d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+              />
+            </svg>
+          </button>
 
+          <h2 class="vipper-text">Viper</h2>
 
+         
 
-        <ul class="menu">
-          <li>Chat UI</li>
-          <li><span data-i18n="menu_templates">All Templates</span><span class="badge">PRO</span></li>
-          <li><span data-i18n="menu_projects">Projects</span><span class="badge">PRO</span></li>
-          <li data-i18n="menu_other_pages">Other Pages</li>
-      </ul>
-      
-          <div class="pro-section">
-            <p data-i18n="upgrade">Go unlimited with PRO</p>
-            <button class="pro-btn" data-i18n="upgrade_btn">Upgrade</button>
-          </div>
-
-          <div class="footer-sidebar">
-            <div class="footer-sidebar-avatar">
-              <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
-              <p data-i18n="user_name">Quang Vu</p>
-            </div>
-            <div class="footer-sidebar-right">
-              <div class="icon-box">
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="currentColor"
-                >
-                  <path
-                    d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"
-                  />
-                </svg>
-              </div>
-              <div class="icon-box">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
+          <ul class="menu">
+            <li data-i18n="chat_ui2">Chat UI</li>
+            
         </aside>
- <!-- Main Content -->
-      <main class="main-content">
-        <header>
-          <nav class="main-content-top">
-            <h1 data-i18n="chat_ui">Chat UI</h1>
-            <div class="user-settings">
-              <span class="user-icon" id="dropdownButton">
-                <img class="avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" />
-              </span>
-              <div class="dropdown" id="dropdownContent">
-                <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
-                <span class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
-                <span class="dropdown-logout" data-i18n="logout">Log out</span>
-              </div>
-            </div>
-          </nav>
-        </header>
-<!-- Chatbot Profile Modal (Hidden by default) -->
-<div class="modal-content" id="chatbotProfile">
-  <span class="close-button">&times;</span>
-  <div class="profile-header">
-      <img src="image/chatbot.jpg" alt="Chatbot Avatar" class="avatar" />
-      <h2>Chatbot Name</h2>
-      <p>Support Bot</p>
-  </div>
-  <div class="profile-body">
-      <p><strong>Description:</strong> I can assist with queries regarding our services and products.</p>
-      <p><strong>Contact:</strong> support@company.com</p>
-  </div>
-  <div class="profile-footer">
-      <button id="contactSupport">Contact Support</button>
-  </div>
-</div>
 
-<!-- User Profile Modal (Hidden by default) -->
-<div class="modal-content" id="userProfile">
-  <span class="close-button">&times;</span>
-  <div class="profile-header">
-      <img src="image/user.jpg" alt="User Avatar" class="avatar" />
-      <h2>User Name</h2>
-      <p>Regular User</p>
-  </div>
-  <div class="profile-body">
-      <p><strong>Description:</strong> This is the profile of a regular user. Customize as needed.</p>
-      <p><strong>Phone:</strong> 03892266812</p>
-      <p><strong>Email:</strong> user@example.com</p>
-      <p><strong>Address:</strong> 111 Dp</p>
-  </div>
-  <div class="profile-footer">
-      <button id="editProfile">Edit Profile</button>
-  </div>
-</div>
-        <!-- Chat Section -->
-        <section class="chat-section">
-          <div class="chat-container">
-            <div class="chat-box">
-              <div class="chat-bot">
-                <p>Bot: Xin chào! Tôi có thể giúp gì cho bạn?</p>
-                <p>Bạn: Xin chào bot!</p>
-              </div>
-              <div class="chat-input">
-                <input type="text" placeholder="Type your message here..." data-i18n-placeholder="type_message" />
-                <button data-i18n="submit_button">Submit</button>
-              </div>
+        <!-- Main Content -->
+        <main class="main-content">
+          <div class="modal-content" id="chatbotProfile">
+            <span class="close-button" data-i18n="close">&times;</span>
+            <div class="profile-header">
+              <img
+                src="image/chatbot.jpg"
+                alt="Avatar Chatbot"
+                class="avatar"
+              />
+              <h2 data-i18n="chatbot_name">Chatbot Name</h2>
+              <p data-i18n="support_bot">Support Bot</p>
+            </div>
+            <div class="profile-body">
+              <p>
+                <strong data-i18n="description">Description:</strong> <span data-i18n="chatbot_description">I can assist with queries regarding our services and products.</span>
+              </p>
+              <p><strong data-i18n="contact">Contact:</strong> support@company.com</p>
+            </div>
+            <div class="profile-footer">
+              <button id="contactSupport" data-i18n="contact_support">>Contact Support</button>
             </div>
           </div>
-        </section>
-      </main>
+
+          <!-- User Profile Modal (Hidden by default) -->
+          <div class="modal-content" id="userProfile">
+            <span class="close-button">&times;</span>
+            <div class="profile-header">
+              <img src="image/user.jpg" alt="User Avatar" class="avatar" />
+              <h2 data-i18n="user_name">User Name</h2>
+              <p data-i18n="regular_user">Regular User</p>
+            </div>
+            <div class="profile-body">
+              <p data-i18n="description">
+                <strong>Description:</strong> This is the profile of a regular
+                user. Customize as needed.
+              </p>
+              <p><strong>Phone:</strong> 03892266812</p>
+              <p><strong>Email:</strong> user@example.com</p>
+              <p><strong>Address:</strong> 111 Dp</p>
+            </div>
+            <div class="profile-footer">
+              <button id="editProfile">Edit Profile</button>
+            </div>
+          </div>
+
+          <!-- Chat Section -->
+          <section class="chat-section">
+            <div class="chat-container">
+              <div class="chat-box">
+                <div class="chat-bot"></div>
+                <div class="chat-input">
+                  <input
+                    type="text"
+                    placeholder="Type your message here..."
+                    data-i18n-placeholder="type_message"
+                  />
+                  <button class="button-submit" data-i18n="submit_button">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
-  </div>
-  <script src="./chatbot.js"></script>
-</body>
+
+    <script src="./chatbot.js"></script>
+  </body>
 </html>

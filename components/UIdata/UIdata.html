@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>AI Chatbot Training Data</h2>
+    <form id="trainingForm">
+        <div class="form-group">
+            <label for="question">Question</label>
+            <input type="text" id="question" name="question" placeholder="E.g., What's the weather today?" required>
+        </div>
+        <div class="form-group">
+            <label for="answer">Answer</label>
+            <textarea id="answer" name="answer" rows="3" placeholder="E.g., Today is sunny." required></textarea>
+        </div>
+        <button type="button" onclick="addData()" class="submit-btn">Add Data</button>
+    </form>
+
+    <h3>Data Preview</h3>
+    <ul id="DataList"></ul>
+</div>
+
+<script src="UIdata.js"></script>
