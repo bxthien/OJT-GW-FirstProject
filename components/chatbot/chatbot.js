@@ -32,7 +32,6 @@ async function getResponse(prompt) {
     console.error("Error getting response from AI:", error);
     return "Xin lỗi, tôi không thể trả lời ngay bây giờ.";
   } finally {
-    // Tắt loading khi kết thúc
     button.classList.remove("loading");
   }
 }
@@ -45,27 +44,70 @@ function createMessageElement(text, sender) {
   avatar.className = "avatar";
   avatar.src =
     sender.toLowerCase() === "bot"
-      ? "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg" // Avatar bot
-      : "https://www.w3schools.com/howto/img_avatar.png"; // Avatar người dùng
+      ? "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg" // Bot avatar
+      : "https://www.w3schools.com/howto/img_avatar.png"; // User avatar
   avatar.alt = "avatar";
 
   const messageElement = document.createElement("p");
   messageElement.classList.add("typing-effect");
   messageContainer.appendChild(avatar);
 
-  let index = 0;
-  function typeEffect() {
-    if (index < text.length) {
-      messageElement.textContent += text[index];
-      index++;
-      setTimeout(typeEffect, 40); // Điều chỉnh tốc độ gõ
+  if (sender === "Bot") {
+    const markdownHTML = marked.parse(text);
+    messageElement.innerHTML = markdownHTML;
+  } else {
+    let index = 0;
+    function typeEffect() {
+      if (index < text.length) {
+        messageElement.textContent += text[index];
+        index++;
+        setTimeout(typeEffect, 20);
+      }
     }
+    typeEffect();
   }
-  typeEffect();
-  messageContainer.appendChild(messageElement);
 
+  messageContainer.appendChild(messageElement);
   return messageContainer;
 }
+
+// click shortcard
+async function handleShortcutClick(prompt) {
+  const chatArea = document.querySelector(".chat-bot");
+  // const shortcutContainer = document.querySelector(".chat-bot .shortcut-card");
+
+  const userMessageElement = createMessageElement(prompt, "User");
+  chatArea.appendChild(userMessageElement);
+  const aiResponse = await getResponse(prompt);
+
+  //chatbot response in the chat
+  console.log("aiResponse", aiResponse);
+  const aiMessageElement = createMessageElement(aiResponse, "Bot");
+  chatArea.appendChild(aiMessageElement);
+
+  // remove shortcut card
+  document.querySelectorAll(".shortcut-card").forEach((card) => card.remove());
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// add shortcut cards
+document.getElementById("weatherShortcut").addEventListener("click", () => {
+  handleShortcutClick("Weather in DaNang");
+});
+
+document.getElementById("newsShortcut").addEventListener("click", () => {
+  handleShortcutClick("News Technology");
+});
+
+document.querySelector(".chat-input").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const prompt = event.target.value;
+    if (prompt.trim()) {
+      handleShortcutClick(prompt);
+      event.target.value = "";
+    }
+  }
+});
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -152,14 +194,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Event listener to handle dropdown and language switcher interactions
 document.addEventListener("DOMContentLoaded", function () {
-
   const languageSelect = document.getElementById("languageSelect");
 
   // Set initial background flag
   setFlagBackground(languageSelect);
 
   // Event listener to change language
-  languageSelect.addEventListener("change", function() {
+  languageSelect.addEventListener("change", function () {
     const selectedLang = languageSelect.value;
     setFlagBackground(languageSelect);
     changeLanguage(selectedLang);
@@ -170,13 +211,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const flagUrl = selectedOption.getAttribute("data-flag");
 
-
     selectElement.style.backgroundImage = `url('${flagUrl}')`;
     selectElement.style.backgroundSize = "17px";
     selectElement.style.backgroundRepeat = "no-repeat";
     selectElement.style.backgroundPosition = "5px center";
   }
-  
 
   function toggleSidebar() {
     const sidebar = document.querySelector(".sidebar");
@@ -205,7 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
     containerIcon.classList.toggle("active");
     sidebar.style.display = "flex";
   });
-
 });
 document.addEventListener("DOMContentLoaded", () => {
   const chatbotProfile = document.getElementById("chatbotProfile");
@@ -253,7 +291,6 @@ if (buttonCloseSidebar) {
   });
 }
 
-
 const translations = {
   en: {
     chat_ui: "Chat UI",
@@ -266,7 +303,8 @@ const translations = {
     close: "Close",
     chatbot_name: "Chatbot Name",
     support_bot: "Support Bot",
-    chatbot_description: "I can assist with queries regarding our services and products.",
+    chatbot_description:
+      "I can assist with queries regarding our services and products.",
     contact: "Contact:",
     contact_support: "Contact Support",
     user_name: "User Name",
@@ -286,11 +324,12 @@ const translations = {
     profile_setting: "Cài đặt Hồ sơ",
     logout: "Đăng xuất",
     submit_button: "Gửi",
-    type_message: "Nhập tin nhắn của bạn ở đây...", 
+    type_message: "Nhập tin nhắn của bạn ở đây...",
     close: "Đóng",
     chatbot_name: "Tên Chatbot",
     support_bot: "Bot Hỗ Trợ",
-    chatbot_description: "Tôi có thể hỗ trợ các câu hỏi liên quan đến dịch vụ và sản phẩm của chúng tôi.",
+    chatbot_description:
+      "Tôi có thể hỗ trợ các câu hỏi liên quan đến dịch vụ và sản phẩm của chúng tôi.",
     contact: "Liên hệ:",
     contact_support: "Liên hệ Hỗ Trợ",
     user_name: "Tên Người Dùng",
@@ -305,16 +344,22 @@ const translations = {
   },
 };
 
-document.getElementById("languageSelect").addEventListener("change", (event) => {
-  const selectedLanguage = event.target.value;
-  updateUI(selectedLanguage);
-});
+document
+  .getElementById("languageSelect")
+  .addEventListener("change", (event) => {
+    const selectedLanguage = event.target.value;
+    updateUI(selectedLanguage);
+  });
 
 function updateUI(language) {
-  const elements = document.querySelectorAll("[data-i18n], [data-i18n-placeholder]");
-  
+  const elements = document.querySelectorAll(
+    "[data-i18n], [data-i18n-placeholder]"
+  );
+
   elements.forEach((element) => {
-    const key = element.getAttribute("data-i18n") || element.getAttribute("data-i18n-placeholder");
+    const key =
+      element.getAttribute("data-i18n") ||
+      element.getAttribute("data-i18n-placeholder");
     if (translations[language][key]) {
       if (element.hasAttribute("placeholder")) {
         // Update the placeholder for input fields
@@ -327,10 +372,7 @@ function updateUI(language) {
   });
 }
 
-updateUI("en"); 
-
-
-
+updateUI("en");
 
 // --------DARKMODE------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -344,23 +386,23 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
   darkModeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
 
-      // Change the icon based on dark mode status
-      if (document.body.classList.contains("dark-mode")) {
-          darkModeToggle.innerHTML = `
+    // Change the icon based on dark mode status
+    if (document.body.classList.contains("dark-mode")) {
+      darkModeToggle.innerHTML = `
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
                   <path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/>
               </svg>
           `;
-      } else {
-          darkModeToggle.innerHTML = `
+    } else {
+      darkModeToggle.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
                   <path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/>
               </svg>
               
           `;
-      }
+    }
   });
 });
 document.addEventListener('DOMContentLoaded', function () {

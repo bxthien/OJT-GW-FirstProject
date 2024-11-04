@@ -93,6 +93,25 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  const languageSelect = document.getElementById("languageSelect");
+    // Set initial background flag
+    setFlagBackground(languageSelect);
+    // Event listener to change language
+    languageSelect.addEventListener("change", function() {
+      const selectedLang = languageSelect.value;
+      setFlagBackground(languageSelect);
+      changeLanguage(selectedLang);
+    });
+    // Function to set the background flag image based on selected language
+    function setFlagBackground(selectElement) {
+      const selectedOption = selectElement.options[selectElement.selectedIndex];
+      const flagUrl = selectedOption.getAttribute("data-flag");
+      selectElement.style.backgroundImage = `url('${flagUrl}')`;
+      selectElement.style.backgroundSize = "17px";
+      selectElement.style.backgroundRepeat = "no-repeat";
+      selectElement.style.backgroundPosition = "5px center";
+    }
+    
   const darkModeToggle = document.getElementById("darkModeToggle");
 
   darkModeToggle.innerHTML = `
