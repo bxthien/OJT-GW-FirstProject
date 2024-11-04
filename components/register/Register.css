@@ -477,3 +477,19 @@ body.dark-mode #languageSelect option {
 .language-switcher select:focus-visible {
   outline: none;
 }
+
+
+.message-box {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+#message {
+  margin-top: 15px;
+  visibility: visible;
+  opacity: 1;
+}
