@@ -1066,3 +1066,79 @@ body.dark-mode .main-content-top {
     height: 35px;
   }
 }
+
+/* Cải thiện kiểu modal hồ sơ người dùng */
+.modal-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 400px; /* Điều chỉnh chiều rộng modal */
+  margin: auto;
+  animation: fadeIn 0.5s; /* Hiệu ứng hiển thị */
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-header .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Avatar tròn */
+  margin-right: 15px;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.profile-body {
+  margin-bottom: 20px;
+}
+
+.profile-body p {
+  margin: 5px 0;
+}
+
+.profile-footer {
+  text-align: right; /* Đẩy nút chỉnh sửa sang bên phải */
+}
+
+#editProfile {
+  background-color: #007bff; /* Màu nền cho nút */
+  color: white; /* Màu chữ */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px; /* Bo tròn góc */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+#editProfile:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+}
+
+.close-button {
+  cursor: pointer;
+  font-size: 20px;
+  color: #999; /* Màu cho nút đóng */
+}
+
+.close-button:hover {
+  color: black; /* Đổi màu khi hover */
+}
+
+/* Hiệu ứng fadeIn cho modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

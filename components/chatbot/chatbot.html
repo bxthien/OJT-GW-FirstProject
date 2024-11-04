@@ -24,7 +24,7 @@
     </span>
     <div class="dropdown" id="dropdownContent">
       <span class="dropdown-title" data-i18n="hey">Hey, Quang Vu</span>
-      <span class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
+      <span id="go-to-profile" class="dropdown-selected" data-i18n="profile_setting">Profile Setting</span>
       <span class="dropdown-logout" data-i18n="logout">Log out</span>
     </div>
   </div>
@@ -117,9 +117,28 @@
               <button id="contactSupport" data-i18n="contact_support">>Contact Support</button>
             </div>
           </div>
+          <!-- Modal Hồ Sơ Người Dùng -->
+<div class="modal-content" id="userProfile" style="display: none;">
+  <span class="close-button" onclick="closeModal()">&times;</span>
+  <div class="profile-header">
+    <img src="image/user.jpg" alt="User Avatar" class="avatar" />
+    <h2 class="user-name" data-i18n="user_name">User Name</h2>
+    <p class="user-role" data-i18n="regular_user">Regular User</p>
+  </div>
+  <div class="profile-body">
+    <p><strong>Mô tả:</strong> Đây là hồ sơ của một người dùng bình thường. Tùy chỉnh nếu cần.</p>
+    <p><strong>Số điện thoại:</strong> <span class="user-phone">03892266812</span></p>
+    <p><strong>Email:</strong> <span class="user-email">user@example.com</span></p>
+    <p><strong>Địa chỉ:</strong> <span class="user-address">111 Dp</span></p>
+  </div>
+  <div class="profile-footer">
+    <button id="editProfile">Chỉnh sửa Hồ Sơ</button>
+  </div>
+</div>
+
 
           <!-- User Profile Modal (Hidden by default) -->
-          <div class="modal-content" id="userProfile">
+          <!-- <div class="modal-content" id="userProfile">
             <span class="close-button">&times;</span>
             <div class="profile-header">
               <img src="image/user.jpg" alt="User Avatar" class="avatar" />
@@ -138,7 +157,7 @@
             <div class="profile-footer">
               <button id="editProfile">Edit Profile</button>
             </div>
-          </div>
+          </div> -->
 
           <!-- Chat Section -->
           <section class="chat-section">
