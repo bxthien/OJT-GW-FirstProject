@@ -68,6 +68,44 @@ function createMessageElement(text, sender) {
   return messageContainer;
 }
 
+// click shortcard 
+async function handleShortcutClick(prompt) {
+  const chatArea = document.querySelector(".chat-bot");
+  // const shortcutContainer = document.querySelector(".chat-bot .shortcut-card");
+
+  const userMessageElement = createMessageElement(prompt, "User");
+  chatArea.appendChild(userMessageElement);
+  const aiResponse = await getResponse(prompt);
+
+  //chatbot response in the chat
+  const aiMessageElement = createMessageElement(aiResponse, "Bot");
+  chatArea.appendChild(aiMessageElement);
+
+  // remove shortcut card
+  document.querySelectorAll(".shortcut-card").forEach(card => card.remove());
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// add shortcut cards
+document.getElementById("weatherShortcut").addEventListener("click", () => {
+  handleShortcutClick("Weather in DaNang");
+});
+
+document.getElementById("newsShortcut").addEventListener("click", () => {
+  handleShortcutClick("News Technology");
+});
+
+document.querySelector(".chat-input").addEventListener("keydown", (event) => 
+  { if (event.key === "Enter") { 
+  const prompt = event.target.value; 
+  if (prompt.trim()) 
+  { handleShortcutClick(prompt); 
+  event.target.value = ""; 
+  } 
+  } 
+  });
+
+
 async function handleSubmit(event) {
   event.preventDefault();
   if (isSending) return;
@@ -277,6 +315,10 @@ const translations = {
     address: "Address:",
     edit_profile: "Edit Profile",
     description: "Description:",
+    shortcut_weather_title: "\"Weather In DaNang\"",
+    shortcut_weather_description: "The weather in DaNang today.",
+    shortcut_news_title: "\"News Technology\"",
+    shortcut_news_description: "News technology today."
   },
   vie: {
     chat_ui: "Giao diện Trò chuyện",
@@ -299,6 +341,10 @@ const translations = {
     address: "Địa chỉ:",
     edit_profile: "Chỉnh Sửa Hồ Sơ",
     description: "Mô tả:",
+    hortcut_weather_title: "\"Thời tiết ở Đà Nẵng\"",
+    shortcut_weather_description: "Thời tiết ở Đà Nẵng hôm nay.",
+    shortcut_news_title: "\"Báo Công Nghệ\"",
+    shortcut_news_description: "Báo công nghệ hôm nay."
   },
 };
 
@@ -324,8 +370,7 @@ function updateUI(language) {
   });
 }
 
-// Initialize the UI with the default language
-updateUI("en"); // Change this to the default language you want
+updateUI("en"); 
 
 
 
@@ -361,17 +406,3 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 });
-
-
-// Import Bootstrap CSS
-const bootstrapLink = document.createElement('link');
-bootstrapLink.rel = 'stylesheet';
-bootstrapLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
-document.head.appendChild(bootstrapLink);
-
-
-// Import custom CSS (UIcard.css)
-const UIcardCSS = document.createElement('link');
-UIcardCSS.rel = 'stylesheet';
-UIcardCSS.href = 'UIcard.css';
-document.head.appendChild(UIcardCSS);
