@@ -277,6 +277,8 @@ const translations = {
     address: "Address:",
     edit_profile: "Edit Profile",
     description: "Description:",
+    profile_team: "Profile Team:",
+    here: "Here",
   },
   vie: {
     chat_ui: "Giao diện Trò chuyện",
@@ -299,6 +301,8 @@ const translations = {
     address: "Địa chỉ:",
     edit_profile: "Chỉnh Sửa Hồ Sơ",
     description: "Mô tả:",
+    profile_team: "Nhóm phát triển:",
+    here: "Xem",
   },
 };
 
@@ -359,4 +363,32 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
       }
   });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const selectContainer = document.getElementById('chatbot-select');
+  const selectedOption = selectContainer.querySelector('.selected-option');
+  const optionsList = selectContainer.querySelector('.options-list');
+  
+  selectedOption.addEventListener('click', function () {
+    optionsList.style.display = optionsList.style.display === 'block' ? 'none' : 'block';
+  });
+
+  optionsList.addEventListener('click', function (event) {
+    if (event.target.tagName === 'LI') {
+      const selectedText = event.target.innerText;
+      const selectedIcon = event.target.querySelector('img').src;
+      selectedOption.querySelector('span').innerText = selectedText;
+      selectedOption.querySelector('img').src = selectedIcon;
+      optionsList.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!selectContainer.contains(event.target)) {
+      optionsList.style.display = 'none';
+    }
+  });
+});
+document.getElementById('go-to-profile').addEventListener('click', function() {
+  window.location.href = '../profile/profile.html';
 });
