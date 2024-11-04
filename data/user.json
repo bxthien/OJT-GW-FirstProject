@@ -1,41 +1,52 @@
-{
-  "user": [
-    {
-      "id": 1,
-      "username": "a",
-      "password": "1",
-      "name": "Nguyen Van A",
-      "email": "nguyenvana@gmail.com",
-      "address": "123 ABC Street, Hanoi",
-      "phone": "0912345678"
-    },
-    {
-      "id": 2,
-      "username": "tranthib",
-      "password": "password456",
-      "name": "Tran Thi B",
-      "email": "tranthib@gmail.com",
-      "address": "456 DEF Street, Hanoi",
-      "phone": "0912345678"
-    },
-    {
-      "id": 3,
-      "username": "levanc",
-      "password": "password789",
-      "name": "Le Van C",
-      "email": "levanc@gmail.com",
-      "address": "789 GHI Street, Hanoi",
-      "phone": "0912345678"
-    },
-
-    {
-      "id": 4,
-      "username": "phamthid",
-      "password": "password321",
-      "name": "Pham Thi D",
-      "email": "phamthid@gmail.com",
-      "address": "321 JKL Street, Hanoi",
-      "phone": "0912345678"
-    }
-  ]
-}
+[
+  {},
+  {
+    "username": "thangttq233",
+    "phone": "0777436605",
+    "address": "123 the lu",
+    "email": "trung@gmail.com",
+    "password": "123"
+  },
+  {
+    "username": "thang123",
+    "phone": "0777436615",
+    "address": "82 trần xuân lê",
+    "email": "11trung@gmail.com",
+    "password": "123"
+  },
+  {
+    "username": "linh230803",
+    "phone": "0888436605",
+    "address": "852 the lu",
+    "email": "linh@gmail.com",
+    "password": "123"
+  },
+  {
+    "username": "linh2308",
+    "phone": "0777546601",
+    "address": "85 tran xuan le",
+    "email": "123@gmail.com",
+    "password": "123"
+  },
+  {
+    "username": "lam",
+    "phone": "0777436601",
+    "address": "85 tran xuan le",
+    "email": "t23rung@gmail.com",
+    "password": "123"
+  },
+  {
+    "username": "thanh",
+    "phone": "0888543605",
+    "address": "123 the lu",
+    "email": "thanh@gmail.com",
+    "password": "123"
+  },
+  {
+    "username": "nhan",
+    "phone": "0888436607",
+    "address": "123 tran xuan le",
+    "email": "nhan@gmail.com",
+    "password": "123"
+  }
+]

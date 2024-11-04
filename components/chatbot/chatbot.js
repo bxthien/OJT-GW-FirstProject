@@ -302,7 +302,7 @@ const translations = {
     edit_profile: "Chỉnh Sửa Hồ Sơ",
     description: "Mô tả:",
     profile_team: "Nhóm phát triển:",
-    here: "Xem",
+    here: "Xem"
   },
 };
 
