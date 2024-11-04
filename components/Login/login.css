@@ -129,7 +129,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
   margin-top: 30px;
 }
 

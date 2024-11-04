@@ -9,7 +9,8 @@
     "express": "^4.21.1",
     "markdown-it": "^14.1.0",
     "node": "^23.1.0",
-    "pretty-html": "^0.0.1"
+    "pretty-html": "^0.0.1",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "vite": "^4.0.0"
