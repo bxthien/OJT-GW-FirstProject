@@ -24,7 +24,6 @@ async function getResponse(prompt) {
     const result = await chat.sendMessage(prompt);
     const response = await result.response;
 
-    // Kiểm tra và lấy mã HTML từ response JSON
     const content =
       response.candidates?.[0]?.content?.parts?.[0]?.text ??
       "Lỗi phản hồi từ bot.";
@@ -277,6 +276,8 @@ const translations = {
     address: "Address:",
     edit_profile: "Edit Profile",
     description: "Description:",
+    profile_team: "Profile Team:",
+    here: "Here",
   },
   vie: {
     chat_ui: "Giao diện Trò chuyện",
@@ -299,6 +300,8 @@ const translations = {
     address: "Địa chỉ:",
     edit_profile: "Chỉnh Sửa Hồ Sơ",
     description: "Mô tả:",
+    profile_team: "Nhóm phát triển:",
+    here: "Xem"
   },
 };
 
@@ -360,57 +363,31 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 });
-
-
-
-  // Xử lý sự kiện click vào nút cài đặt hồ sơ
-  const profileSetting = document.querySelector('.dropdown-selected');
-  const userProfileModal = document.getElementById('userProfile');
-  const closeButtons = document.querySelectorAll('.close-button');
+document.addEventListener('DOMContentLoaded', function () {
+  const selectContainer = document.getElementById('chatbot-select');
+  const selectedOption = selectContainer.querySelector('.selected-option');
+  const optionsList = selectContainer.querySelector('.options-list');
   
-  profileSetting.addEventListener('click', async () => {
-    try {
-      const username = sessionStorage.getItem('username');
-      if (!username) {
-        alert('Vui lòng đăng nhập!');
-        return;
-      }
+  selectedOption.addEventListener('click', function () {
+    optionsList.style.display = optionsList.style.display === 'block' ? 'none' : 'block';
+  });
 
-      const response = await fetch(`http://localhost:3000/user/${username}`);
-      if (!response.ok) {
-        throw new Error('Không thể lấy thông tin người dùng');
-      }
-
-      const userData = await response.json();
-      
-      // Cập nhật modal với dữ liệu người dùng
-      userProfileModal.querySelector('h2').textContent = userData.username;
-      const profileBody = userProfileModal.querySelector('.profile-body');
-      profileBody.innerHTML = `
-        <p><strong>Mô tả:</strong> Thông tin người dùng</p>
-        <p><strong>Số điện thoại:</strong> ${userData.phone}</p>
-        <p><strong>Email:</strong> ${userData.email}</p>
-        <p><strong>Địa chỉ:</strong> ${userData.address}</p>
-      `;
-      
-      // Hiển thị modal
-      userProfileModal.style.display = 'block';
-    } catch (error) {
-      console.error('Lỗi:', error);
-      alert('Không thể lấy thông tin người dùng');
+  optionsList.addEventListener('click', function (event) {
+    if (event.target.tagName === 'LI') {
+      const selectedText = event.target.innerText;
+      const selectedIcon = event.target.querySelector('img').src;
+      selectedOption.querySelector('span').innerText = selectedText;
+      selectedOption.querySelector('img').src = selectedIcon;
+      optionsList.style.display = 'none';
     }
   });
 
-  // Xử lý nút đóng
-  closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      userProfileModal.style.display = 'none';
-    });
-  });
-
-  // Đóng modal khi click bên ngoài
-  window.addEventListener('click', (event) => {
-    if (event.target === userProfileModal) {
-      userProfileModal.style.display = 'none';
+  document.addEventListener('click', function (event) {
+    if (!selectContainer.contains(event.target)) {
+      optionsList.style.display = 'none';
     }
   });
+});
+document.getElementById('go-to-profile').addEventListener('click', function() {
+  window.location.href = '../profile/profile.html';
+});
