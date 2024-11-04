@@ -11,10 +11,9 @@
   left: 50%;
   transform: translateX(-20%);
   display: grid;
-  z-index: 1000;
   grid-template-columns: 1fr 1fr; 
   gap: 15px; 
-  padding: 50px;
+  padding: 45px;
   border-radius: 10px;
   max-width: 600px;
 }
@@ -27,12 +26,11 @@
   border-radius: 8px; 
   cursor: pointer;
   transition: background-color 0.3s;
-  text-align: center;
 }
 
 .shortcut-card:hover {
   background-color: #444;
-  color: white;
+  color: gray;
 }
 
 .shortcut-icon {
@@ -45,12 +43,13 @@
 }
 
 .shortcut-content {
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: 2;
-  border: 1px solid #444;
   border-radius: 6px;
+  padding: 8px;
 }
 
 .shortcut-title {
@@ -66,6 +65,54 @@
   align-items: center; 
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  .shortcut-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%); 
+  }
+
+  .shortcut-card {
+    gap: 5px;
+    padding: 10px;
+  }
+
+  .shortcut-title {
+    font-size: 10px;
+  }
+
+  .shortcut-description {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shortcut-container {
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%); 
+    grid-template-columns: 1fr;
+    padding: 8px;
+    width: 95%;
+  }
+
+  .shortcut-title {
+    font-size: 9px;
+  }
+
+  .shortcut-description {
+    font-size: 8px;
+  }
+
+  .shortcut-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
 
 
 .background {
@@ -322,6 +369,7 @@ header nav {
   overflow-y: auto;
   border-radius: 10px;
   background-color: #d3d3d3;
+  flex-direction: column;
 }
 .chat-input {
   display: flex;
@@ -755,7 +803,6 @@ header nav {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s;
-    z-index: 1000;
   }
   
   .dark-mode-btn:hover {
