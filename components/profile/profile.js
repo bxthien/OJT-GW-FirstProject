@@ -123,7 +123,8 @@ const translations = {
        memberName6: "Duy Trần",
        ageGender6: "Age: 21, Male",
        hometown6: "Hometown: Kon Tum",
-       bio6: "In the middle of every difficulty lies opportunity."   
+       bio6: "In the middle of every difficulty lies opportunity.",   
+       back: "Back to Chatbot"
     },
     vie: {
         teamTitle: "Hồ sơ đội Vipers",
@@ -157,8 +158,8 @@ const translations = {
         memberName6: "Duy Trần",
         ageGender6: "21 tuổi, Nam",
         hometown6: "Quê quán: Kon Tum",
-        bio6: "Giữa những khó khăn là những cơ hội"
-
+        bio6: "Giữa những khó khăn là những cơ hội",
+        back: "Quay lại Chatbot"
     },
   };
   
@@ -183,4 +184,7 @@ const translations = {
       }
     });
   }
-  
+function goBack() {
+    window.location.href = "../chatbot/chatbot.html";
+}
+

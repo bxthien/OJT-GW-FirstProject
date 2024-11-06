@@ -163,7 +163,23 @@ body {
   outline: none;
 }
 
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007bff; /* Default blue color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* Hover effect */
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
 
 /* -----------------DARKMODE-------------------- */
 .dark-mode-btn {
@@ -235,4 +251,14 @@ body.dark-mode .profile .bio {
 
 body.dark-mode .profile .age-gender {
   color: #7aa8e0;
+}
+.dark-mode button {
+  background-color: #333333; /* Dark background for dark mode */
+  color: #f1f1f1;
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode hover effect */
+.dark-mode button:hover {
+  background-color: #555555; /* Slightly lighter dark color on hover */
 }
